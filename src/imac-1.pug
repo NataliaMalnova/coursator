@@ -1,0 +1,93 @@
+
+include components/structure-page/main.pug
+
+include components/blocks/dflt-bttn/dflt-bttn.pug
+include components/blocks/course-card/course-card.pug
+include components/blocks/contacts/contacts.pug
+
++main-structure-top()
+
+section.main-head.flex-column.jc-c 
+    .main-head__container.container.flex-column.jc-c
+        .main-head__title.ttl-tp-1 Найди подходящий курс
+        .main-head__text.txt-tp-1 Мы — агрегатор-отзовик курсов. Выбирайте курсы по стоимости, длительности, дате начала и другим параметрам!
+        .main-head__footer.d-f.ai-c
+            +dflt-bttn({ className: 'main-head__footer-link', text: 'ПРОЙТИ ТЕСТ'})
+            .main-head__footer-text Не уверены, какую <a class="lnk" href="#">профессию</a> выбрать?
+    picture.main-head__picture
+        source(media="(max-width: 500px)", srcset="images/content/main-head-mobile.png")
+        img.main-head__picture-img(src="images/content/main-head.png", alt="" )    
+
+.container.tb
+    section.areas-courses.sctn-crd.tb.pd-tp-1
+        .ttl-tp-2 Направления курсов
+        .areas-courses__grid.grid.jc-sb.mt-tp-1
+            each key, index in ["Программирование", "Управление", "Дизайн", "Маркетинг", "Аналитика", "Создание контента"]    
+                .areas-card.d-f.jc-sb.bttn-hvr
+                    a.bg-link(href="#") 
+                    .areas-card__info 
+                        .tag-message.h-dflt.p-dflt.green.ai-c!= '<span class="bold">300</span> курсов'
+                        .areas-card__text.txt-tp-2= key
+                    img.areas-card__picture(src=`images/content/areas-card-${index + 1}.svg`, alt="" loading="lazy")
+
+section.top-shools.mt-tp-2
+    .container
+        .ttl-tp-2 Топ школ
+        .top-shools__grid.grid.mt-tp-3
+            each key in ["1", "2", "3", "4","1", "2", "3", "4","1", "2", "3", "4"]
+                a.top-shools__element.bttn-hvr.d-f.ai-c.jc-c(href="#") 
+                    img.top-shools__element-img(src=`images/content/top-shools-${key}.svg`, alt="" loading="lazy")
+
+section.top-courses.mt-tp-2
+    .container
+        .top-courses__head.d-f.ai-c.jc-sb
+            .top-courses__head-title.ttl-tp-2 Топ курсов
+            .top-courses__head-select.select-input(data-select-input="")
+                button.select-input__button.d-f.ai-c(data-evnt-slct-bttn="")
+                    span.select-input__button-text(data-evnt-slct-bttn-txt="") Программирование
+                    img.select-input__button-icon.icon-size(src="images/icons/arrow-down-black.svg", alt="" loading="lazy")
+                .select-input__modal 
+                    each key, index in ["Программирование", "Управление", "Дизайн", "Маркетинг", "Аналитика", "Создание контента"]
+                        button.select-input__modal-element(
+                            data-select-input-element= index + 1
+                            class = index == 0 ? 'active' : null
+                        )= key
+        - for (let j = 0; j < 6; j++)
+            .top-courses__grid.grid.mt-tp-3(
+                data-select-input-table= j + 1
+                class= j != 0 ? 'hidden' : null
+            )
+                - for(let i = 0; i < 3; i++)
+                    +course-card(i, j)
+
+.container.mb.mt-tp-4
+    section.subscribe-block.sctn-crd.mb.pd-tp-2
+        img.subscribe-block__bg.tp-1(src="images/content/subscribe-block.png", alt="")
+        .tag-message.h-big.p-big.green.ai-c Получайте все новости
+        .subscribe-block__title.ttl-tp-3.mt Подпишитесь на email рассылку
+        form.subscribe-block__line.d-f
+            input.subscribe-block__line-input(type="email" placeholder="Ваш email" required='' )
+            +dflt-bttn({ tag: 'button',className: 'subscribe-block__line-button', text: 'Подписаться', size: '2'})
+
+section.blog-section.mt-tp-2 
+    .container
+        .d-f.jc-sb.ai-c
+            .blog-section__head-title.ttl-tp-2 Блог
+            a.blog-section__link.d-f.ai-c.lnk.icon-size(href="#")
+                span.blog-section__link-text Смотреть все
+                img.icon-size(src="images/icons/arrow-right-blue.svg", alt="" loading="lazy")
+        .blog-section__grid.grid.mt-tp-1
+            each key, index in [["Профессия «Python разработчик»", "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus"], ["Профессия «Python разработчик»", "Lorem ipsum dolor sit amet, consectetur adipiscing ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus"], ["Профессия «Python разработчик»", "Lorem ipsum dolor sit amet, ut aliquam, purus ut aliquam, purus"], ["«Python разработчик»", "Lorem ipsum dolor sit amet ut aliquam, purus"]]
+                .blog-article.flex-column(class= index === 3 ? 'desktop' : null)
+                    img.blog-article__picture(src="images/content/blog-article.jpg", alt="" loading="lazy")
+                    .blog-article__body.flex-column
+                        a.blog-article__title.hvr-lnk(href='#')= key[0]
+                        .blog-article__text= key[1]
+                        a.blog-article__link.lnk.d-f.ai-c(href="#") 
+                            span.blog-article__link-text Читать
+                            img.blog-article__link-icon(src="images/icons/arrow-right-blue.svg", alt="" loading="lazy")
+
++contacts()
+
++main-structure-bottom()
+

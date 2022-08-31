@@ -1,0 +1,54 @@
+
+include components/structure-page/main.pug
+
+include components/blocks/dflt-bttn/dflt-bttn.pug
+include components/blocks/dflt-chckbx/dflt-chckbx.pug
+include components/blocks/course-card/course-card.pug
+include components/blocks/contacts/contacts.pug
+include components/blocks/breadcrumbs/breadcrumbs.pug
+
++main-structure-top()
+
++breadcrumbs({links: ["Главная", "Тест"]})
+
+section.test-ui.container.mt-tp-3.d-f.jc-sb.jc-c
+    .test-ui__inner.d-f.jc-sb
+        .test-ui__buttons.d-f
+            each key in ["prev", 'next']
+                button.test-ui__button.d-f.ai-c.jc-c(
+                    data-event-sldr-arrw=key
+                    class=key
+                )
+                    svg.test-ui__button-icon(width='10' height='17' viewBox='0 0 10 17' fill='none' xmlns='http://www.w3.org/2000/svg')
+                        path(d='M9.97461 2.62906L4.11647 8.49999L9.97461 14.3709L8.17112 16.1744L0.4967 8.49999L8.17112 0.825577L9.97461 2.62906Z' fill='#0075FF')
+        .test-amount.test-amount--mobile.d-f.ai-c.jc-c(data-event-sldr-amnt="") <span data-event-sldr-amnt-strt="">1</span> / <span data-event-sldr-amnt-end="">10</span>
+
+
+section.test-slider.container.mt-tp-16
+    p.test-slider__error Пожалуйста, ответьте на все вопросы!
+    form.test-slider__swiper.swiper(data-slider-tst="")
+        .swiper-wrapper.ai-c
+            .test-slider__element.swiper-slide
+                .test-slider__element-start.d-f.jc-sb
+                    p.test-slider__element-start-title Тест на выбор профессии
+                    p.test-slider__element-start-describe.mt-20 Пора найти курс мечты. Ответь на вопросы и узнай, какое направление подходит под твои способности и интересы.
+                button.dflt-bttn.d-f.ai-c.jc-c.test-slider__element-button.s-2.t-dflt.bg(data-event-sldr-arrw= index === 9 ? null : "next")
+                    span.dflt-bttn__text= index === 9 ? 'Узнать результат' : 'далее'
+            each key, index in ["В какой области вы работали в последнее время?", "Какое у вас образование?", "Оцените свою способность к аналитическому мышлению", "Вы умеете находить общий язык с разными типами людей?", "В какой области вы работали в последнее время?", "Какое у вас образование?", "Оцените свою способность к аналитическому мышлению", "Вы умеете находить общий язык с разными типами людей?", "Оцените свою способность к аналитическому мышлению", "Вы умеете находить общий язык с разными типами людей?"]
+                .test-slider__element.swiper-slide
+                    .test-slider__element-head.d-f.jc-sb
+                        .test-slider__element-head-text= key
+                        .test-amount.ds.d-f.ai-c.jc-c(data-event-sldr-amnt="")!= `<span data-event-sldr-amnt-strt="">${index + 1}</span> / <span data-event-sldr-amnt-end="">10</span>`
+                    .mt-tp-3
+                        each inpt, i in index === 0 ? ["Да", "Нет", "Затрудняюсь ответить"] : index === 1 ? ["Легко нахожу общий язык со всеми", "Нахожу общий язык в большинстве случаев", "Когда как", "Трудно налаживать отношения с новыми людьми", "Не люблю общение"] : ["yes", 'no']
+                            .test-slider__element-answer.d-f.ai-c 
+                                input(type="radio" name="test-answer" id=`test-answer-${index}-${i}`)
+                                label(for=`test-answer-${index}-${i}`)= inpt
+                                
+                    button.dflt-bttn.d-f.ai-c.jc-c.test-slider__element-button.s-2.t-dflt.bg(data-event-sldr-arrw= index === 9 ? null : "next")
+                        span.dflt-bttn__text= index === 9 ? 'Узнать результат' : 'далее'
+
++contacts({mt: 'mt-tp-4'})
+
++main-structure-bottom()
+

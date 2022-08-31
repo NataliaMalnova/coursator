@@ -1,0 +1,65 @@
+include ../raiting/raiting.pug
+mixin feedbackBox()
+    .feedback-box
+        .feedback-box--row.d-f  
+            .feedback-box--col 
+                .feedback-box--left
+                    .feedback-box__avatar(style='background:url("./images/content/avatar.svg") no-repeat center / cover')
+                    div 
+                        .d-f.mt-tp-12
+                            +rating({})
+                        .feedback-box__data-mobile
+                            p.feedback-box__verified.color-green Проверенный   
+                            p 19.04.2021
+                .feedback-box--review.review-box__footer-ui.d-f
+                    each key in [["like", "4"], ["dislike", "1"]]
+                        button.review-box__footer-button.d-f.ai-c.jc-c
+                            .review-box__footer-button-amount= key[1]
+                            img.review-box__footer-button-icon(src=`images/icons/${key[0]}.svg`, alt="" loading="lazy")
+            .feedback-box--col 
+                .feedback-box__title.d-f.jc-sb
+                    .d-f.ai-c.grid
+                        p.title-semibold Георгий
+                        span курс “Дизайн сайтов на Tilda”
+                    .d-f.ai-c.feedback-box__data
+                        p.feedback-box__verified.color-green Проверенный   
+                        p 19.04.2021
+                div(data-text-more)
+                    .feedback-box__text(data-text-more-text).mt-tp-12 
+                        p В SkillFactory шел с четкой целью — хочу стать айтишником. С самого начала я очень усердно занимался и даже шел впереди основного графика. Сложность модулей со временем нарастала, а вот мое усердие поослабло. Меня начали терзать сомнения насчет того, не погорячился ли я с покупкой всего курса целиком. В некотором унынии я провел пару месяцев и не учился. В SkillFactory шел с четкой целью — хочу стать айтишником. С самого начала я очень усердно занимался и даже шел впереди основного графика. Сложность модулей со временем нарастала, а вот мое усердие поослабло. Меня начали терзать сомнения насчет того, не погорячился ли я с покупкой всего курса целиком. В некотором унынии я провел пару месяцев и не учился.
+                    p.tx-small.link-blue.feedback-box__more.mt-tp-12(data-text-more-open) Развернуть отзыв
+                .feedback-box--review-mobile
+                    .review-box__footer-ui.d-f
+                        each key in [["like", "4"], ["dislike", "1"]]
+                            button.review-box__footer-button.d-f.ai-c.jc-c
+                                .review-box__footer-button-amount= key[1]
+                                img.review-box__footer-button-icon(src=`images/icons/${key[0]}.svg`, alt="" loading="lazy")
+                .feedback-box__pros.d-f.jc-sb
+                    .feedback-box__pros-col
+                        .d-f.ai-c
+                            include ../../image/pros.pug
+                            span.title-semibold.color-green Плюсы
+                        p Опытные преподаватели. Много практики. Гибкая систем оплаты. 
+                        p Можно получить скидку на обучение.
+                        p На онлайн-конференциях есть чат, чтобы задавать вопросы спикеру
+                    .feedback-box__pros-col
+                        .d-f.ai-c
+                            include ../../image/minus.pug
+                            span.title-semibold.color-pink Минусы
+                        p Слишком затянуто по времени. Сделайте набор для тех у кого нулевые знания.
+                        p Большие группы. Могут пропустить вопрос.
+                a(href="" class="tx-small link-blue" data-show-modal="overlay__comment")  Прокомментировать
+                .feedback-box__comments.mt-tp-12(data-comments)
+                    .feedback-box__comments-open(data-comments-open).d-f.ai-c
+                        img(src=`images/icons/arrow-long-black.svg`, alt="" loading="lazy")
+                        p 3 комментария
+                    .feedback-box__comments-content(data-comments-content)
+                        - for(let i = 0; i < 3; i++)
+                            .feedback-box__comments-item.d-f
+                                .feedback-box__comments-avatar.d-f(style='background:url("./images/content/avatar.svg") no-repeat center / cover')
+                                .feedback-box__comments-content--text
+                                    .feedback-box__comments-title.d-f.jc-sb.ai-c
+                                        p Георгий
+                                        p 24.04.2022
+                                    p.tx-small В SkillFactory шел с четкой целью — хочу стать айтишником. С самого начала я очень усердно занимался и даже шел впереди основного графика. Сложность модулей со временем нарастала, а вот мое усердие поослабло. Меня начали терзать сомнения насчет того, не погорячился ли я с покупкой всего курса целиком.
+                        p.link-blue.feedback-box__comments-close(data-comments-close) Скрыть комментарии

@@ -1,0 +1,11 @@
+include ../../image/star.pug
+mixin rating({classBig = false})
+    .rating.d-f
+        if classBig
+            +image-star({ size: 40, color: '#FFAA05'})
+        else
+            +image-star({ size: 20, color: '#FFAA05'})
+        .rating-text(class= classBig ? 'ratingBig' : null)
+            p 4.9 
+                span из 5.0
+            label 122 отзыва

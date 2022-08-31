@@ -1,0 +1,9 @@
+mixin tag({activeClass = null, classColor='', value=[]})
+    .tag-wrapper.grid(data-tag)
+        each key, item in value
+            a.tx-small.tag.ai-c(
+                class = item == activeClass ? 'tag-active' : null
+                class= classColor
+                href="#"
+                data-tag-item
+                )=key

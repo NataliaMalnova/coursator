@@ -1,0 +1,213 @@
+
+include components/structure-page/main.pug
+
+include components/blocks/dflt-bttn/dflt-bttn.pug
+include components/blocks/dflt-chckbx/dflt-chckbx.pug
+include components/blocks/course-card/course-card.pug
+include components/blocks/contacts/contacts.pug
+include components/blocks/breadcrumbs/breadcrumbs.pug
+
+mixin content-grid-scroll({title, ind = 1})
+    .content-grid__title= title
+    .content-grid__list(data-scroll-dflt="")
+        each key, index in ['City Business School', 'Contented', 'Convert Monster', "QMARKETING ACADEMY", "SF Education", 'XYZ School', 'Контур школа', 'Хекслет', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school']
+            +dflt-chckbx({className: 'content-grid__list-element', text: key, index: `cg-${ind}-${index}`})
+
++main-structure-top()
+
++breadcrumbs({links: ["Главная", "Курсы", "Курсы по созданию сайтов"]})
+
+.container.head-title.center.mt-tp-6 Курсы по созданию сайтов
+
+
+.container.mt-tp-6(data-event-anchors="")
+    section.anchors-links.swiper(data-slider-anchors="")
+        .swiper-wrapper
+            each key, index in [["КУРСЫ С ФИЛЬТРАМИ", "course-filter"], ["КУРСЫ СПИСКОМ", "course-list"], ["БЕСПЛАТНЫЕ КУРСЫ", "course-free"], ["ВАКАНСИИ", "vacancy"], ["ШКОЛЫ", "school"]]
+                a.anchors-links__element.swiper-slide.d-f.jc-c.ai-c.txt-tp-3(href= `#${key[1]}`)= key[0]
+
+.container.mt-tp-8
+    section.inner-text.txt-tp-3 Сравнивайте лучшие курсы по программированию в различных областях и найдите подходящее предложение. Здесь представлено 241 платных онлайн курсов, которые помогут вам стать грамотными специалистами. А если вы не уверены в выборе профессии, сначала попробуйте бесплатные варианты. Большой выбор обучающих программ по цене, продолжительности, формату, отзывам, условиям рассрочки. Мы поддерживаем информацию о всех курсах проверенных школ в актуальном состоянии.
+
+.container.mb.mt-tp-6 
+    section.subscribe-block.sctn-crd.mb.pd-tp-2
+        img.subscribe-block__bg.tp-2(src="images/content/subscribe-block-3.png", alt="")
+        .subscribe-block__title.ttl-tp-3 Вам важно чтобы курс был в рассрочку?
+        .subscribe-block__buttons.d-f
+            each key in ["да", "НЕТ"]
+                a.subscribe-block__button.d-f.ai-c(href="#")= key
+
+        
+
+section.mt-tp-9#course-filter
+    .container
+        .ttl-tp-2 Курсы с фильтрами
+        form.filter-line.d-f.mt-tp-3
+            input.filter-line__text(type="text" placeholder="Ключевые слова")
+            .filter-line__select.dropdown-select(data-event-drpdwn-slct="")
+                input.hidden(data-event-drpdwn-slct-inpt="" type="text" value="Программирование")
+                button.filter-line__select-button.dropdown-select__button.d-f.ai-c.jc-sb(data-event-drpdwn-slct-bttn="")
+                    span.filter-line__select-button-text.dropdown-select__button-text(data-event-drpdwn-slct-bttn-txt="") Программирование
+                    img.filter-line__select-button-icon.dropdown-select__button-icon.icon-size(src="images/icons/arrow-down-black.svg", alt="" loading="lazy")
+                .dropdown-select__modal(data-event-drpdwn-slct-mdl="")
+                    .dropdown-select__modal-search
+                        input.dropdown-select__modal-search-input(type="text" data-event-drpdwn-slct-srch="")
+                    .dropdown-select__modal-inner(data-scroll-dflt="")
+                        each key, index in [["Все категории", []], ["Программирование", ["Web-разработка", "Python-разработка", "Мобильная разработка", "Верстка на HTML/CSS"]], ["Управление", ["Product-менеджмент", "HR и управление персоналом", "Управление бизнесом", "Финансовая аналитика"]], ["Дизайн", ["Web-дизайн", 'Графический дизайн', "UX/UI дизайн", "3D-моделирование"]], ["Маркетинг", ["SMM-продвижение", "Интернет-маркетинг"]], ["Аналитика", ["Big Data"]], ["Создание контента", ["Копирайтинг", 'Контент-маркетинг', "Создание и монтаж видео", "Съемка и обработка фото", "3D-анимация", "Sound-дизайн и звукорежиссура", "Блогерство"]]]
+                            label.dropdown-select__modal-element.title(
+                                class= index === 1 ? 'active' : null
+                                data-event-drpdwn-slct-elmnt=""
+                            )= key[0]
+                            each label in key[1]
+                                label.dropdown-select__modal-element(data-event-drpdwn-slct-elmnt="")= label
+                        .dropdown-select__modal-empty.hidden(data-event-drpdwn-slct-empt) Совпадений не найдено
+            +dflt-bttn({tag: 'a', className: 'filter-line__button', text: 'Поиск', size: '2', hover: 'bg'})
+        button.filter-button.d-f.jc-sb.ai-c.mt-tp-8(data-event-fltr-bttn="")
+            span.filter-button__text ФИЛЬТРОВАТЬ
+            img.filter-button__icon.icon-size(src="images/icons/settings.svg", alt="" loading="lazy")
+
+section.content-grid.mt-tp-1.container.d-f
+    form.content-grid__toolbar.d-f.dflt(data-modal-tlbr="")
+        .dflt(data-modal-tlbr-wndw="")
+            div(data-modal-tlbr-cntnt="")
+                each blk in [["ЦЕНА", ["0", "100000"]], ["РАССРОЧКА", ["0", "175000"]]]
+                    .content-grid__title= blk[0]
+                    div(data-event-rng="")
+                        .content-grid__inputs.d-f.jc-sb
+                            each key in blk[1]
+                                label.content-grid__input.short.d-f.ai-c
+                                    input.content-grid__input-text(
+                                        data-event-rng-inpt=""
+                                        type="text" 
+                                        value= key
+                                    )
+                                    .content-grid__input-value ₽
+                        .content-grid__slider(
+                            data-range-dflt=""
+                            data-range-min=blk[1][0]
+                            data-range-max=blk[1][1]
+                            data-range-start=blk[1][0]
+                            data-range-end=blk[1][1]
+                        )
+                
+                +content-grid-scroll({title: 'ШКОЛА', ind: 0})
+                
+                .content-grid__title НАЧАЛО
+                label.content-grid__date.d-f.ai-c.jc-sb
+                    input.content-grid__date-input(type="text" data-datepicker="" placeholder="Выберите дату")
+                    img.content-grid__date-icon.icon-size(src="images/icons/calendar.svg", alt="" loading="lazy")
+
+                each key,index in ["ФОРМАТ", "ОСОБЕННОСТИ"]
+                    +content-grid-scroll({title: key, ind: index + 1})
+
+                +dflt-bttn({tag: 'button', className: 'content-grid__button', text: 'ФИЛЬТРОВАТЬ', size: '2', hover: 'bg'})
+        button.content-grid__toolbar-close.modal__close.d-f.ai-c.jc-c.dflt(data-event-mdl-cls="")
+            img.modal__close-icon(src="images/icons/close-black.svg", alt="" loading="lazy")
+    .content-grid__table 
+        .content-grid__table-head.d-f.jc-sb
+            .content-grid__table-head-text.content-grid__table-text <span class="desktop">ОТОБРАЖАЮТСЯ </span>1-11 ИЗ 241 РЕЗУЛЬТАТОВ
+            form.content-grid__table-head-filter.d-f
+                .content-grid__table-text СОРТИРОВАТЬ ПО:
+                .content-grid__table-select.dropdown-select.d-f.ai-c.md(data-event-drpdwn-slct="")
+                    input.hidden(data-event-drpdwn-slct-inpt="" type="text" value="Релевантность")
+                    select.content-grid__table-select-mob.dropdown-select__mob(data-event-drpdwn-slct-mb="")
+                        each key in ["Релевантность", "Заголовок", "Цена ↑", "Цена ↓", "Рассрочка ↑", "Рассрочка ↓", "Начало ↑"]
+                            option(value=key)= key
+                    button.content-grid__table-select-button.dropdown-select__button.d-f.ai-c.jc-sb(data-event-drpdwn-slct-bttn="")
+                        span.content-grid__table-select-button-text.dropdown-select__button-text(data-event-drpdwn-slct-bttn-txt="") Релевантность
+                        img.content-grid__table-select-button-icon.dropdown-select__button-icon.icon-size(src="images/icons/arrow-down-black.svg", alt="" loading="lazy")
+                    .content-grid__table-select-modal.dropdown-select__modal(data-event-drpdwn-slct-mdl="")
+                        .dropdown-select__modal-inner(data-scroll-dflt="")
+                            each key, index in ["Релевантность", "Заголовок", "Цена ↑", "Цена ↓", "Рассрочка ↑", "Рассрочка ↓", "Начало ↑"]
+                                label.dropdown-select__modal-element(
+                                    class= index === 0 ? 'active' : null
+                                    data-event-drpdwn-slct-elmnt=""
+                                )= key
+                            .dropdown-select__modal-empty.hidden(data-event-drpdwn-slct-empt) Совпадений не найдено
+        .content-grid__table-block.grid.jc-sb
+            - for(let i = 0; i < 6; i++)
+                +course-card(i, 0, 'content-grid__table-block-element')
+        .grid-pagination.d-f.ai-c.jc-c
+            a.grid-pagination__arrow.back.disable.d-f.ai-c.jc-c(href="#")
+                svg.grid-pagination__arrow-icon(width='8' height='12' viewBox='0 0 8 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                    path(d='M7.40997 1.41L2.82997 6L7.40997 10.59L5.99997 12L-2.76566e-05 6L5.99997 0L7.40997 1.41Z' fill='#CACACA')
+            each key, index in ['1', '2', '3', '22']
+                if index == 3
+                    .grid-pagination__dots ...
+                a.grid-pagination__element.d-f.ai-c.jc-c(class= index === 0 ? 'active' : null href="#")= key 
+            a.grid-pagination__arrow.next.d-f.ai-c.jc-c(href="#")
+                svg.grid-pagination__arrow-icon(width='8' height='12' viewBox='0 0 8 12' fill='none' xmlns='http://www.w3.org/2000/svg')
+                    path(d='M-3.05176e-05 10.59L4.57997 6L-3.05176e-05 1.41L1.40997 0L7.40997 6L1.40997 12L-3.05176e-05 10.59Z' fill='#CACACA')
+
+each sctn in [["course-list", "Платные курсы", "mt-tp-2"], ["course-free", "Бесплатны курсы", "mt-tp-6"]] 
+    section.courses-table(
+        id= sctn[0]
+        class= sctn[2]
+    )
+        .container
+            .ttl-tp-2= sctn[1]
+            form.courses-table__search.d-f.mt-tp-3
+                input.courses-table__search-input(type="text", placeholder="Поиск")
+                button.courses-table__search-button.d-f.ai-c.jc-c
+                    img(src="images/icons/loupe.svg", alt="" loading="lazy")
+        .courses-table__inner.container.mt-tp-3(data-scroll-dflt="")
+            .courses-table__content
+                .courses-table__line.d-f
+                    each box, index in ["Курс", "Школа", "Рейтинг школы", "Стоимость", "Минимальный платеж", "Дата начала", "Длительность", "Ссылка"]
+                        button.courses-table__box.button.d-f.jc-sb(class= `courses-table__box--${index + 1}`)
+                            span.courses-table__text= box
+                            span.courses-table__arrows.flex-column
+                                each arrow in ["up", "down"]
+                                    img.courses-table__arrow(src=`images/icons/arrow-table-${arrow}.svg`, alt="" loading="lazy")
+                each key in [["Онлайн-курс по PHP", "Нетология", "23 400 ₽", "Рассрочки нет", "В любой момент", '3 месяца'], ["Веб-разработчик с нуля до PRO", "Skillbox", "70 800 ₽", "от 11 000 ₽", "13.10.2021", '10 месяцев'], ["Веб-разработчик с нуля", "HTML Academy", "159 600 ₽", "от 5 900 ₽", "В любой момент", '2 месяца']]
+                    .courses-table__line.d-f
+                        .courses-table__box.courses-table__box--1.d-f.ai-c    
+                            a.courses-table__link(href="#")= key[0]
+                        .courses-table__box.courses-table__box--2 
+                            .courses-table__logo.d-f.ai-c.jc-c
+                                img.courses-table__logo-img(src="images/content/courses-table-logo.svg", alt="" loading="lazy")
+                            a.courses-table__text.hvr-lnk(href="#")= key[1] 
+                        .courses-table__box.courses-table__box--3.d-f.ai-c
+                            img.courses-table__icon(src="images/icons/star.svg", alt="" loading="lazy")
+                            .courses-table__text 4.9 <a class="link" href="#">(122)</a>
+                        .courses-table__box.courses-table__box--4.d-f.ai-c
+                            img.courses-table__icon(src="images/icons/coins.svg", alt="" loading="lazy")
+                            div= key[2]
+                        .courses-table__box.courses-table__box--5.d-f.ai-c
+                            .courses-table__text= key[3] 
+                        .courses-table__box.courses-table__box--6.d-f.ai-c
+                            .courses-table__text= key[4]
+                        .courses-table__box.courses-table__box--7.d-f.ai-c
+                            img.courses-table__icon(src="images/icons/clock.svg", alt="" loading="lazy")
+                            .courses-table__text= key[5]
+                        .courses-table__box.courses-table__box--8.d-f.ai-c
+                            a.courses-table__link(href="#") Посетить
+                            img.courses-table__icon-link(src="images/icons/arrow-right-blue.svg", alt="" loading="lazy")
+
+section.salary-sctn.mt-tp-6#vacancy(
+    data-event-slr-sctn=""
+    data-event-arrw-cd='<a class="salary-sctn__line-button d-f ai-c jc-c" href="#"> <img class="salary-sctn__line-button-icon" src="images/icons/arrow-right-white.svg" alt="" loading="lazy" /></a>'
+)
+    .container
+        .salary-sctn__head.d-f.ai-c.jc-sb
+            .salary-sctn__head-title.ttl-tp-2 Зарплаты и вакансии программистов
+            a.salary-sctn__head-link(href="#")
+                img.salary-sctn__head-link-img(src="images/content/salary-sctn-head.png", alt="") 
+        .salary-sctn__text Новые вакансии:
+
+        script(type='text/javascript' src='https://www.superjob.ru/export/informer/showinformer.html?vac_quantity=4&order=1&charset=UTF-8')
+
+
+
+section.top-shools.mt-tp-2#school
+    .container
+        .ttl-tp-2 Cписок школ, которые участвуют в категории
+        .top-shools__grid.grid.mt-tp-3
+            each key in ["1", "2", "3", "4","1", "2", "3", "4","1", "2", "3", "4"]
+                a.top-shools__element.bttn-hvr.d-f.ai-c.jc-c(href="#") 
+                    img.top-shools__element-img(src=`images/content/top-shools-${key}.svg`, alt="" loading="lazy")
+
++contacts({mt: 'mt-tp-4'})
+
++main-structure-bottom()
+

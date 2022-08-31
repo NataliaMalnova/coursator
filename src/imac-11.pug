@@ -1,0 +1,57 @@
+
+include components/structure-page/main.pug
+
+include components/blocks/dflt-bttn/dflt-bttn.pug
+include components/blocks/dflt-chckbx/dflt-chckbx.pug
+include components/blocks/course-card/course-card.pug
+include components/blocks/contacts/contacts.pug
+include components/blocks/breadcrumbs/breadcrumbs.pug
+
+mixin content-grid-scroll({title, ind = 1})
+    .content-grid__title= title
+    .content-grid__list(data-scroll-dflt="")
+        each key, index in ['City Business School', 'Contented', 'Convert Monster', "QMARKETING ACADEMY", "SF Education", 'XYZ School', 'Контур школа', 'Хекслет', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school']
+            +dflt-chckbx({className: 'content-grid__list-element', text: key, index: `cg-${ind}-${index}`})
+
++main-structure-top()
+
+
+section.course-head.mt-tp-6
+    .container
+        .head-title Факультет веб-разработки
+        .course-head__content.d-f.jc-sb.ai-fe
+            .course-head__tags.grid 
+                each key in ["Программирование", "Python", "Skillbox"]
+                    a.course-head__tag.tag-message.green-opacity.h-gig.p-gig.ai-c(href="#")= key
+            .course-head__price
+                .course-head__month От 2 777 ₽/мес
+                .course-head__all.d-f.ai-c
+                    img.course-head__all-icon(src="images/icons/coins.svg", alt="" loading="lazy")
+                    .course-head__all-text 17 150 ₽ / курс
+
+.container.mt-tp-10
+    section.course-body.d-f.jc-sb
+        .course-body__info
+            each key in ["<span class='bold'>Начало:</span> 17.08.2021", "<span class='bold'>Длительность:</span> 8 месяцев", "<span class='bold'>Занятия:</span> 2-3 занятия в неделю", "<span class='bold'>Формат:</span> онлайн-лекции, домашние задания с фидбеком от преподавателей", "<span class='bold'>Особенности:</span> постоянная практика, актуальная программа обучения, чат с одногруппниками. После обучение все студенты проходят стажировку"]
+                .course-body__info-text!= key 
+        .course-body__ui.flex-column.jc-sb.ai-fe
+            .course-body__ui-assessment.d-f.ai-c
+                img.course-body__ui-assessment-icon(src="images/icons/star.svg", alt="" loading="lazy")
+                .course-body__ui-assessment-text 4.9 <a class="hvr-lnk" href="#">(122)</a>
+            +dflt-bttn({ className: 'course-body__ui-button', size: 2, text: 'Курс на gb.ru'})
+
+section.top-courses.mt-tp-11
+    .container
+        .top-courses__head-title.ttl-tp-2 Похожие курсы
+        - for (let j = 0; j < 6; j++)
+            .top-courses__grid.grid.mt-tp-3(
+                data-select-input-table= j + 1
+                class= j != 0 ? 'hidden' : null
+            )
+                - for(let i = 0; i < 3; i++)
+                    +course-card(i, j, false, false, true)
+
++contacts({mt: 'mt-tp-4'})
+
++main-structure-bottom()
+

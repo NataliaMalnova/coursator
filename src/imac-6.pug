@@ -1,0 +1,38 @@
+
+include components/structure-page/main.pug
+
+include components/blocks/dflt-bttn/dflt-bttn.pug
+include components/blocks/dflt-chckbx/dflt-chckbx.pug
+include components/blocks/course-card/course-card.pug
+include components/blocks/contacts/contacts.pug
+include components/blocks/breadcrumbs/breadcrumbs.pug
+
++main-structure-top()
+
++breadcrumbs({links: ["Главная", "Отзывы от онлайн школах"]})
+
+.container.head-title.center.mt-tp-6 Отзывы об онлайн-школах
+
+.container.mt-tp-12
+    section.inner-text.txt-tp-3.left Предоставив возможность ученикам цифровых образовательных платформ поделиться впечатлениями об обучении, мы собрали отзывы об онлайн-школах и курсах, которые они представляют. Мнение выпускников поможет сделать верный выбор и отдать предпочтение лучшей школе.
+
+section.reviews-sctn.mt-tp-6
+    .reviews-sctn__grid.container.grid.jc-sb
+        each key in [["Skillbox", 'Одна из самых масштабных онлайн-школ, большой выбор образовательных программ. Преподаватели школы — профессионалы в своей области. Заинтересованы в получении актуальных знаний и трудоустройстве выпускников.'], ["GeekBrains", 'Школа существует с 2010 года, официальная цифровая образовательная платформа Mail.ru Group. Обучают маркетингу, программированию, дизайну. Проводят бесплатные мастер-классы и интенсивы. Постоянно совершенствуют образовательные методики для повышения эффективности обучения.'], ["SkillFactory", "Школа является частью образовательной экосистемы Mail.ru Group. Обучают цифровым профессиям с нуля учеников любого возраста и без технического опыта, специализируются на программировании, разработке, аналитике данных."], ["Laba", "Бизнес-школа дистанционного обучения. Готовят менеджеров, рекрутеров, HR, маркетологов, бизнес-аналитиков. Имеют аккредитацию международного уровня HRCI и IIBA."]]
+            .review-card.flex-column
+                .review-card__logo.d-f.ai-c.jc-c
+                    img.review-card__logo-img(src="images/content/action-card-logo.svg", alt="" loading="lazy")
+                .review-card__body 
+                    .review-card__head.d-f.ai-c
+                        a.review-card__name.hvr-lnk(href="#")= key[0]
+                        .review-card__tag.tag-message.h-dflt.p-dflt.green.ai-c!= '<span class="bold">300</span> курсов'
+                        .review-card__assessment.d-f.ai-c
+                            img.review-card__assessment-icon(src="images/icons/star.svg", alt="" loading="lazy")
+                            .review-card__assessment-text 4.9 <a class="hvr-lnk" href="#">(122)</a>
+                    .review-card__text= key[1] 
+                +dflt-bttn({className: 'review-card__link', text: '6 ОТЗЫВОВ', hover: 'bg'})
+
++contacts({mt: 'mt-tp-4'})
+
++main-structure-bottom()
+

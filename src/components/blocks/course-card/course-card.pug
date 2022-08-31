@@ -1,0 +1,28 @@
+mixin course-card(i = 0, j = 0, className = false, color = false, bg = false)
+    .course-card.flex-column(class= className ? className : null)
+        .course-card__picture(class= bg ? 'transparent' : null)
+            if !bg
+                img.course-card__picture-img(src="images/content/course-card.jpg", alt="" loading="lazy")
+            .course-card__tags.grid
+                - let arr = i == 0 ? [j == 0 ? "Программирование" : j == 1 ? 'Управление' : j == 2 ? 'Дизайн' : j == 3 ? 'Маркетинг' : j == 4 ? 'Аналитика' : j == 5 ? 'Создание контента' : 'Программирование', "Python", "Skillbox"] : ["Программирование", "Python", "Skillbox", 'Работа с Excel и Google-таблицами']
+                each key in arr
+                    a.course-card__tag.d-f.ai-c(href="#")= key
+        .course-card__body.flex-column
+            .course-card__head.d-f.jc-sb
+                a.course-card__head-title.hvr-lnk(href="#")= i == 0 ? 'Веб-разработчик' : 'Google Sheets и Exсel'
+                .course-card__head-assessment.d-f
+                    img.course-card__head-assessment-icon.icon-size(src="images/icons/star.svg", alt="" loading="lazy")
+                    .course-card__head-assessment-text 4.9 <a class="grey" href="#">(122)</a>
+
+            - arr = i == 0 ? ["<span class='bold'>Начало:</span> 17.08.2021", "<span class='bold'>Длительность:</span> 8 месяцев", "<span class='bold'>Занятия:</span> 2-3 занятия в неделю", "<span class='bold'>Формат:</span> онлайн-лекции, домашние задания с фидбеком от преподавателей", "<span class='bold'>Особенности:</span> постоянная практика, актуальная программа обучения, чат с одногруппниками. После обучение все студенты проходят стажировку"] : ["<span class='bold'>Начало:</span> В любой момент", "<span class='bold'>Длительность:</span> 2 месяца", "<span class='bold'>Занятия:</span> 2 лекции в неделю + практика", "<span class='bold'>Формат:</span> видеоуроки, практические занятия в формате домашних заданий, обратная связь от наставников", "<span class='bold'>Особенности:</span> нету."]
+            each key, index in arr
+                .course-card__text(class = index == 4 ? 'last' : null)!= key
+            
+            .course-card__price.grid.jc-sb.ai-c
+                .course-card__price-inner.d-f.ai-c
+                    img.course-card__price-icon(src=`images/icons/${color ? `coins-${color}` : "coins"}.svg`, alt="" loading="lazy")
+                    .course-card__price-title(class= color ? color : null)= i == 0 ? '17 150 ₽ / курс' : '170 150 ₽ / курс'
+                .course-card__price-text= i == 0 ? 'От 2 777 ₽/мес' : 'От 20 777 ₽/мес'
+            
+        a.course-card__footer.d-f.ai-c.jc-c(href='#')
+            span.course-card__footer-text.lght-txt=i == 0 ? 'Курс на gb.ru' : 'Курс на productstar.ru'

@@ -1,0 +1,11 @@
+footer.footer.mt-tp-5
+    .container
+        .footer__links.grid
+            each key in ["О нас", "Контакты", "Отзывы о школах"]
+                a.footer__link.hvr-lnk(href="#")= key
+            
+        .footer__bottom.d-f.ai-c
+            .footer__cop © 2021 coursator.online
+            .footer__bottom-links.d-f
+                each key in ["Политика конфиденциальности", "Пользовательское соглашение"]
+                    a.footer__bottom-link.hvr-lnk(href="#")= key

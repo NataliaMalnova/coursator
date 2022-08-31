@@ -1,0 +1,12 @@
+mixin dflt-bttn({tag = 'a', className, text, size = 'dflt', theme = 'dflt', hover = 'pulse', icon = false, dataShowModal = ''})
+    #{tag}.dflt-bttn.d-f.ai-c.jc-c(
+        class= className
+        class= `s-${size}`
+        class= `t-${theme}`
+        class= hover === 'none' ? null : hover
+        href= tag === 'a' ? '#' : null
+        data-show-modal=dataShowModal
+           )
+        span.dflt-bttn__text= text
+        if icon
+            img.dflt-bttn__icon.icon-size(src="images/icons/arrow-right-white.svg", alt="" loading="lazy")

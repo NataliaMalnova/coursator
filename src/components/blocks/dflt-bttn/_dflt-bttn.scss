@@ -1,0 +1,65 @@
+.dflt-bttn {
+  text-align: center;
+  &.s {
+    &-dflt {
+      border-radius: 70px;
+      min-height: 65px;
+      font-weight: 600;
+      @include media("tb") {
+        min-height: 60px;
+        font-size: 14px;
+      }
+    }
+    &-2 {
+      border-radius: 14px;
+      min-height: 62px;
+      font-weight: 500;
+    }
+    &-3 {
+      border-radius: 0px 11px 11px 11px;
+      min-height: 65px;
+      font-weight: 600;
+    }
+    &-4 {
+      min-height: 69px;
+      border-radius: 62px;
+      font-weight: 600;
+      font-size: 25px;
+      text-transform: uppercase;
+      @include media("tb") {
+        min-height: 58px;
+        font-size: 16px;
+      }
+    }
+    &-5 {
+      min-height: 80px;
+      border-radius: 13px;
+      font-weight: 600;
+      font-size: 19px;
+    }
+  }
+  &.t {
+    &-dflt {
+      @include var("background", "blue", $blue);
+      box-shadow: 0 0 0 1em rgba(#fff, 0);
+      @include var("color", "light-text", $light-text);
+    }
+    &-red {
+      @include var("background", "red-2", $red-2);
+      @include var("color", "light-text", $light-text);
+    }
+  }
+  &.pulse {
+    &:hover {
+      animation: pulse 1s infinite;
+    }
+  }
+  &.bg {
+    &:hover {
+      @include var("background", "blue-hover", $blue-hover);
+    }
+  }
+  &__icon {
+    margin-left: 16px;
+  }
+}

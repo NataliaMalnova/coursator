@@ -1,0 +1,61 @@
+include ../dflt-bttn/dflt-bttn.pug
+include ../assessment/assessment.pug
+
+mixin modalFeedback()
+    .overlay.overlay--feedback#overlay__feedback
+        .overlay-wrap
+            .overlay-wrap__top.d-f.ai-c.jc-sb
+                h3 Оставить отзыв
+                .overlay--close.d-f
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.414062" y="18" width="25" height="2" rx="1" transform="rotate(-45 0.414062 18)" fill="black"/>
+                        <rect x="1.41431" width="25" height="2" rx="1" transform="rotate(45 1.41431 0)" fill="black"/>
+                    </svg>
+            p.overlay-wrap__top-describe Ваш адрес email не будет опубликован. Обязательные поля помечены *
+            .overlay-wrap__content
+                form.form-basic
+                    .form-basic__filter.filter-line__select.dropdown-select(data-event-drpdwn-slct="")
+                        input.hidden(data-event-drpdwn-slct-inpt="" type="text" value="Название курса *")
+                        button.filter-line__select-button.dropdown-select__button.d-f.ai-c.jc-sb(data-event-drpdwn-slct-bttn="")
+                            span.filter-line__select-button-text.dropdown-select__button-text(data-event-drpdwn-slct-bttn-txt="") Название курса *
+                            img.filter-line__select-button-icon.dropdown-select__button-icon.icon-size(src="images/icons/arrow-down-black.svg", alt="" loading="lazy")
+                        .dropdown-select__modal(data-event-drpdwn-slct-mdl="")
+                            .dropdown-select__modal-search
+                                input.dropdown-select__modal-search-input(type="text" data-event-drpdwn-slct-srch="")
+                            .dropdown-select__modal-inner(data-scroll-dflt="")
+                                each key, index in [["Все категории", []], ["Программирование", ["Web-разработка", "Python-разработка", "Мобильная разработка", "Верстка на HTML/CSS"]], ["Управление", ["Product-менеджмент", "HR и управление персоналом", "Управление бизнесом", "Финансовая аналитика"]], ["Дизайн", ["Web-дизайн", 'Графический дизайн', "UX/UI дизайн", "3D-моделирование"]], ["Маркетинг", ["SMM-продвижение", "Интернет-маркетинг"]], ["Аналитика", ["Big Data"]], ["Создание контента", ["Копирайтинг", 'Контент-маркетинг', "Создание и монтаж видео", "Съемка и обработка фото", "3D-анимация", "Sound-дизайн и звукорежиссура", "Блогерство"]]]
+                                    label.dropdown-select__modal-element.title(
+                                        class= index === 1 ? 'active' : null
+                                        data-event-drpdwn-slct-elmnt=""
+                                    )= key[0]
+                                    each label in key[1]
+                                        label.dropdown-select__modal-element(data-event-drpdwn-slct-elmnt="")= label
+                                .dropdown-select__modal-empty.hidden(data-event-drpdwn-slct-empt) Совпадений не найдено
+                    input.form-basic__input.d-f.ai-c(type="text" placeholder="Название курса *" required="")
+                    textarea.form-basic__input.d-f.ai-c(
+                        placeholder="Комментарий"
+                        data-textarea=""
+                    )
+                    each key in [["Имя *", "text"], ["Email *", "email"]]
+                        input.form-basic__input.d-f.ai-c(type=key[1] placeholder=key[0] required="")
+                    .overlay--feedback__assessment-row.d-f.jc-sb
+                        .overlay--feedback__assessment-col
+                            +assessment({title: 'Стоимость *', name: 'assessment-price'})
+                        .overlay--feedback__assessment-col
+                            +assessment({title: 'Подача материала *', name: 'assessment-materialSupply'})
+                        .overlay--feedback__assessment-col
+                            +assessment({title: 'Программа обучения *', name: 'assessment-trainingProgram'})
+                        .overlay--feedback__assessment-col
+                            +assessment({title: 'Уровень организации *', name: 'assessment-organizationLevel'})
+                    .overlay--feedback__pros-row.d-f.jc-sb
+                        .overlay--feedback__pros-col
+                            textarea.form-basic__input.d-f.ai-c(
+                                placeholder="Плюсы"
+                                data-textarea=""
+                            )
+                        .overlay--feedback__pros-col
+                            textarea.form-basic__input.d-f.ai-c(
+                                placeholder="Минусы"
+                                data-textarea=""
+                            )
+                    +dflt-bttn({tag: 'button', className: 'form-basic__ui-button', text: 'ОСТАВИТЬ ОТЗЫВ', size: 2, hover: 'bg'})

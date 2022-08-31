@@ -1,0 +1,57 @@
+header.header
+    .header_inner
+        .container.d-f.ai-c
+            a.header__logo.d-f.ai-c(href="#")
+                img.header__logo-img(src="images/content/logo.svg", alt="")
+
+            nav.header-nav.d-f.ai-c(data-evnt-hdr-nv="")   
+                .header-nav-lang
+                    .top-courses__head.d-f.ai-c.jc-sb
+                        .top-courses__head-select.select-input(data-select-input="")
+                            button.select-input__button.d-f.ai-c(data-evnt-slct-bttn="")
+                                img(src="images/icons/us.png", alt="" data-evnt-slct-bttn-image="")
+                                span.select-input__button-text(data-evnt-slct-bttn-txt="") EN
+                                img.select-input__button-icon.icon-size(src="images/icons/arrow-down-black.svg", alt="" loading="lazy")
+                            .select-input__modal 
+                                each key, index in [["EN", 'images/icons/us.png'], ["RU", 'images/icons/ru.png']]
+                                    button.select-input__modal-element(
+                                        data-select-input-element= index + 1
+                                        class = index == 0 ? 'active' : null
+                                    )
+                                        img(src= key[1], alt="")
+                                        span= key[0]
+                                    
+                .header__links.d-f
+                    each key in ["Тест на профессию", "Акции", "Отзывы"]
+                        a.header__links-element.hvr-lnk(href="#")= key
+                
+                .header__button(data-evnt-hdr-btn="")
+                    button.header__button-head.d-f.ai-c(data-evnt-hdr-btn-elmnt="")
+                        span.header__button-head-text Все курсы
+                        img.header__button-head-icon.icon-size(src="images/icons/arrow-up-black.svg", alt="" loading="lazy" )
+                    
+                    .header__button-modal.d-f(data-evnt-hdr-btn-mdl="")
+                        .header__button-modal-left(data-evnt-hdr-btn-mdl-innr="")
+                            each key, index in ["Программирование", "Управление", "Дизайн", "Маркетинг", "Аналитика", "Создание контента"]
+                                button.header__button-modal-button.d-f.ai-c.jc-sb.hvr-lnk(data-number-nav= index + 1)
+                                    span.header__button-modal-button-text= key
+                                    svg.header__button-modal-button-icon(width='5' height='8' viewBox='0 0 5 8' fill='none' xmlns='http://www.w3.org/2000/svg')
+                                        path(d='M0 7.06L3.05333 4L0 0.94L0.94 4.76837e-07L4.94 4L0.94 8L0 7.06Z' fill='#0075FF')
+                        
+                        - for (let i = 1; i <= 6; i++)
+                            .header__button-modal-right(data-number-modal= i)
+                                button.header__button-modal-right-back.d-f.ai-c(data-evnt-hdr-btn-bck)
+                                    img.header__button-modal-right-back-icon.icon-size(src="images/icons/arrow-left-blue.svg", alt="" loading="lazy")
+                                    span.header__button-modal-right-back-text Назад
+                                .header__button-modal-right-inner
+                                    each key in ["SMM-продвижение", 'Интернет-маркетинг', 'Маркетинговая аналитика', 'Копирайтинг', 'Web-аналитика', 'Контент-маркетинг', 'Таргетированная реклама','Руководство маркетингом','SEO-продвижение','Продвижение в Instagram','Контекстная реклама','PR-менеджмент','Бренд-менеджмент','Продвижение видео','SERM и репутация','Создание лендингов','Реклама у блогеров','CRM и email-маркетинг', 'Мессенджер-маркетинг и чат-боты', 'Развитие креативного мышления']
+                                        a.header__button-modal-link.hvr-lnk(href="#")= key + ' ' + i
+
+
+            button.burger.flex-column.jc-sb(data-evnt-brgr="")
+                span.burger__line
+                span.burger__line
+                span.burger__line   
+
+
+            

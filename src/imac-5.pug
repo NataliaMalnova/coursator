@@ -1,0 +1,42 @@
+
+include components/structure-page/main.pug
+
+include components/blocks/dflt-bttn/dflt-bttn.pug
+include components/blocks/dflt-chckbx/dflt-chckbx.pug
+include components/blocks/course-card/course-card.pug
+include components/blocks/contacts/contacts.pug
+include components/blocks/breadcrumbs/breadcrumbs.pug
+
+mixin content-grid-scroll({title, ind = 1})
+    .content-grid__title= title
+    .content-grid__list(data-scroll-dflt="")
+        each key, index in ['City Business School', 'Contented', 'Convert Monster', "QMARKETING ACADEMY", "SF Education", 'XYZ School', 'Контур школа', 'Хекслет', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school']
+            +dflt-chckbx({className: 'content-grid__list-element', text: key, index: `cg-${ind}-${index}`})
+
++main-structure-top()
+
++breadcrumbs({links: ["Главная", "Акции онлайн школ"]})
+
+.container.head-title.center.mt-tp-6 Акции онлайн-школ
+
+.container.mt-tp-12
+    section.inner-text.txt-tp-3.left Онлайн-школы и образовательные платформы регулярно предлагают скидки для своих учеников и проводят распродажи курсов. Здесь представлены актуальные акции онлайн-школ, следите за обновлениями данного раздела.
+
+.container.mb.mt-tp-13
+    section.action-card.sctn-crd.pd-tp-3.d-f.jc-sb
+        img.action-card__bg(src="images/content/action-card.png", alt="")
+        .action-card__info.flex-column.jc-sb
+            a.action-card__logo(href="#") 
+                picture
+                    source(media="(max-width: 700px)", srcset="images/content/action-card-logo-dark.svg")
+                    img.action-card__logo-img(src="images/content/action-card-logo.svg", alt="" loading="lazy")
+            .action-card__text.lght-txt Акция действует c 01 по 08 апреля
+            +dflt-bttn({tag: 'div', className: 'action-card__tag', text: 'Распродажа от Skillbox', size: '4', theme: 'red', hover: 'none'})
+            .action-card__amount.lght-txt Скидки 50% на курсы
+        +dflt-bttn({className: 'action-card__link', text: 'Акция на skillbox.ru. ', size: '5', icon: true})
+
+
++contacts({mt: 'mt-tp-4'})
+
++main-structure-bottom()
+

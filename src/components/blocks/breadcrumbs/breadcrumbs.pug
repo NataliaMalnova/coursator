@@ -1,0 +1,11 @@
+mixin breadcrumbs({links})
+    section.breadcrumbs
+        .container.grid.ai-c
+            each key, index in links
+                - let isLast = index === links.length - 1
+                #{isLast ? "span" : "a"}.breadcrumbs__element(
+                    href= isLast ? null : '#'
+                    class= isLast ? null : 'hvr-lnk'
+                )= key
+                if !isLast 
+                    img.breadcrumbs__icon(src=`images/icons/${index === links.length - 2 ? 'arrow-right-blue' : 'arrow-right-black'}.svg`, alt="" loading="lazy")

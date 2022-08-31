@@ -1,0 +1,43 @@
+include components/structure-page/main.pug
+
+include components/blocks/dflt-bttn/dflt-bttn.pug
+include components/blocks/dflt-chckbx/dflt-chckbx.pug
+include components/blocks/course-card/course-card.pug
+include components/blocks/contacts/contacts.pug
+include components/blocks/breadcrumbs/breadcrumbs.pug
+include components/blocks/tag/tag.pug
+
+mixin content-grid-scroll({title, ind = 1})
+    .content-grid__title= title
+    .content-grid__list(data-scroll-dflt="")
+        each key, index in ['City Business School', 'Contented', 'Convert Monster', "QMARKETING ACADEMY", "SF Education", 'XYZ School', 'Контур школа', 'Хекслет', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school']
+            +dflt-chckbx({className: 'content-grid__list-element', text: key, index: `cg-${ind}-${index}`})
+
++main-structure-top()
++breadcrumbs({links: ["Главная", "Блог курсов"]})
+
+section.blog-categories.mt-tp-6
+    .container
+        h1.head-title Блог онлайн образования от агрегатора онлайн курсов coursator.online
+        h3.ttl-tp-2.mt-20 Категории
+        .blog-categories__tag.mt-20.d-f
+            +tag({activeClass: 0, classColor:"tag-color--fillets", value: ["Все", "Аналитика", "Программирование", "Фриланс"]})
+        h3.ttl-tp-2.mt-20 Последние статьи от Курсатора
+        .blog-categories--row.grid
+            - for (let j = 0; j < 6; j++)
+                .blog-categories--col
+                    .blog-categories__card.mt-20
+                        .blog-categories__card-top
+                            a(
+                                href="" 
+                                class="blog-categories__card-image" 
+                                style='background:url("https://coursator.online/wp-content/uploads/2022/04/ella-don-kCFXVisUqug-unsplash-400x300.jpg") no-repeat center / cover'
+                            )
+                        .blog-categories__card-content
+                            h3.title-semibold.hvr-lnk В чем отличие бизнес-аналитика и системного аналитика — сравнительный анализ
+                            p.mt-20 Бизнес подстраивается под тенденции современного мира, внедряя новые профессии и обязанности для сотрудников. Бизнес-аналитик и системный аналитик — довольно новые специальности и не всем понятно, чем отличается аналитика каждого. Именно об этом мы подробно поговорим в нашей статье. Содержание статьи: Кто такой аналитик Чем занимается бизнес-аналитик Чем занимается системный аналитик Как взаимодействуют БА и СА
+
++contacts({mt: 'mt-tp-4'})
+
++main-structure-bottom()
+

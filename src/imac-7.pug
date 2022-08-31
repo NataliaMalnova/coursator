@@ -1,0 +1,72 @@
+
+include components/structure-page/main.pug
+
+include components/blocks/dflt-bttn/dflt-bttn.pug
+include components/blocks/dflt-chckbx/dflt-chckbx.pug
+include components/blocks/course-card/course-card.pug
+include components/blocks/contacts/contacts.pug
+include components/blocks/breadcrumbs/breadcrumbs.pug
+
++main-structure-top()
+
++breadcrumbs({links: ["Главная", "Отзывы о Skillbox"]})
+
+section.container.mt-tp-6
+    .review-head.grid.ai-c.jc-sb 
+        .review-head__title.head-title Отзывы Skillbox
+        .review-head__assessment.d-f.ai-c
+            img.review-head__assessment-icon(src="images/icons/star.svg", alt="" loading="lazy")
+            .review-head__assessment-text 4.9 <a class="hvr-lnk" href="#">(122)</a>
+    
+    .review-info.d-f.jc-sb.mt-tp-14
+        .review-info__tag.tag-message.green-opacity.h-gig.p-2.ai-c(href="#") 6 ОТЗЫВОВ
+        .review-info__inner
+            .review-info__text Одна из самых масштабных онлайн-школ, большой выбор образовательных программ. Преподаватели школы — профессионалы в своей области. Заинтересованы в получении актуальных знаний и трудоустройстве выпускников.
+            +dflt-bttn({className: 'review-info__link mt-tp-14', text: 'На сайт школы', size: 2})
+
+section.container.mb.mt-tp-15
+    each key in [["Георгий", "Позитивный отзыв", 5], ["Татьяна", "Негативный отзыв", 4], ["Евгения Иванова", "Негативный отзыв", 2]]
+        .review-box.sctn-crd.pd-tp-4.mb
+            .review-box__head.d-f.ai-c
+                .review-box__head-inner.grid.ai-c
+                    .review-box__head-name= key[0]
+                    .review-box__head-status.tag-message.h-2.p-big.ai-c(class= key[1] === "Позитивный отзыв" ? 'green-opacity' : 'red-opacity')= key[1]                
+                .review-box__head-date 19.04.2021
+            .review-box__text Не так давно начал обучатся в Skillbox по профессии графический дизайнер. Могу сразу отметить хорошую работу кураторов. Помогают всем начинающим с оплатой курса, документами, абсолютно по любым вопросам консультируют 24/7 помогают решить вопросы, сложившиеся вдруг трудности а также идут навстречу всем начинающим! Учусь еще недолго, но пока гора новой информации, все нравится как и ожидал. Как закончу курс, напишу второй отзыв или дополню этот, если получится", 5], ["Георгий", "Позитивный отзыв", "Не так давно начал обучатся в Skillbox по профессии графический дизайнер. Могу сразу отметить хорошую работу кураторов. Помогают всем начинающим с оплатой курса, документами, абсолютно по любым вопросам консультируют 24/7 помогают решить вопросы, сложившиеся вдруг трудности а также идут навстречу всем начинающим! Учусь еще недолго, но пока гора новой информации, все нравится как и ожидал. Как закончу курс, напишу второй отзыв или дополню этот, если получится
+            .review-box__footer.d-f.ai-c.jc-sb
+                .review-box__footer-stars.d-f
+                    - for(let i = 0; i < key[2]; i++)
+                        img.review-box__footer-star(src="images/icons/star.svg", alt="" loading="lazy")
+                    - for(let i = 0; i < 5 - key[2]; i++)
+                        img.review-box__footer-star(src="images/icons/star-empty.svg", alt="" loading="lazy")
+                .review-box__footer-ui.d-f
+                    each key in [["like", "4"], ["dislike", "1"]]
+                        button.review-box__footer-button.d-f.ai-c.jc-c
+                            .review-box__footer-button-amount= key[1]
+                            img.review-box__footer-button-icon(src=`images/icons/${key[0]}.svg`, alt="" loading="lazy")
+
+section.container.mb.mt-tp-15 
+    form.add-review.sctn-crd.pd-tp-4.mb
+        .add-review__title Оставить отзыв
+        .add-review__text Ваш адрес email не будет опубликован. Обязательные поля помечены *
+        textarea.add-review__input.first(
+            placeholder="Комментарий"
+            data-textarea=""
+        )
+        each key in [["Имя *", "text"], ["Email *", "email"]]
+            input.add-review__input(type=key[1] placeholder=key[0] required="")
+        .add-review__footer.d-f.ai-fe.jc-sb
+            .add-review__assessment
+                .add-review__assessment-text Рейтинг *
+                .add-review__assessment-stars.d-f.ai-c
+                    - for(let i = 0; i < 5; i++)
+                        label.add-review__assessment-star(data-event-assssmnt-str="")
+                            input.hidden(type="radio" name='review-assessment-star')
+                            svg.add-review__assessment-star-icon(width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg')
+                                path(d='M10.7608 16.1982L10.5002 16.039L10.2396 16.1982L4.83636 19.4983L6.30531 13.3393L6.37616 13.0422L6.14422 12.8436L1.33697 8.72571L7.64716 8.22016L7.95161 8.19576L8.0689 7.91375L10.5002 2.06759L12.9315 7.91375L13.0488 8.19577L13.3533 8.22016L19.6643 8.72571L14.8563 12.8435L14.6243 13.0422L14.6951 13.3393L16.164 19.4983L10.7608 16.1982Z' stroke='#DCDCDC')
+            +dflt-bttn({tag: 'button', className: 'add-review__footer-button', text: 'ОСТАВИТЬ ОТЗЫВ', size: 2, hover: 'bg'})
+
++contacts({mt: 'mt-tp-4'})
+
++main-structure-bottom()
+

@@ -1,0 +1,9 @@
+mixin contacts({mt} = {mt: 'mt-tp-2'})
+    section.contacts(class=mt)
+        .contacts__container.container.grid.jc-sb.ai-c
+            a.contacts__logo(href="#")
+                img.contacts__logo-img(src="images/content/logo.svg", alt="" loading="lazy")
+            .contacts__links.grid
+                each key in ["tl", "tw", "sk", "ok", "fb", "vk", "wa", "vb"]
+                    a.contacts__links-element(href="#")
+                        img.contacts__links-element-icon(src=`images/content/${key}.svg`, alt="" loading="lazy") 
