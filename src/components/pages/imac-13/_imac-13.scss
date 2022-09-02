@@ -44,6 +44,11 @@
       font-weight: 700;
     }
 
+    a:hover {
+      color: #0075ff;
+      text-decoration: underline;
+    }
+
     p {
       margin-top: 20px;
 
@@ -82,31 +87,31 @@
       li:last-child {
         margin-bottom: 0;
       }
-
-      span {
-        font-weight: 700;
-      }
     }
   }
 
   &__wrap-blue {
     background: #0693e3;
-    padding: 20px;
+    padding: 20px 40px;
     border-radius: 12px;
-    padding: 40px;
 
     @include media("md") {
-      padding: 20px;
+      padding: 10px 8px;
     }
 
     a {
       color: #fff;
       display: block;
-      padding-bottom: 20px;
+      padding: 10px;
       text-align: center;
     }
-    a:last-child {
-      padding-bottom: 0;
+
+    a:hover {
+      text-decoration: underline;
+      background: #0075ff;
+      color: #fff;
+      transition: width 0.6s, height 0.6s, background-color 0.6s, transform 0.6s;
+      border-radius: 30px;
     }
   }
 
