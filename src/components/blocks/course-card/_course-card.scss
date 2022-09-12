@@ -1,5 +1,6 @@
 .course-card {
   border-radius: 19px;
+  cursor: pointer;
   @include var("background", "default-bg-site", $default-bg-site);
   overflow: hidden;
   &__picture {
@@ -102,11 +103,15 @@
         margin-right: 9px;
         @include const-size(16px, true);
       }
+
       &-text {
         font-size: 14px;
         line-height: 17px;
         .grey {
           @include var("color", "grey-4", $grey-4);
+        }
+        &:hover {
+          color: var(--blue);
         }
         a {
           font-size: inherit;
@@ -210,6 +215,19 @@
       .course-card__footer-text {
         @include anim-swing();
       }
+    }
+  }
+
+  &__linkMore {
+    font-size: 12px;
+    color: var(--blue);
+    white-space: nowrap;
+    background: 0 0;
+    text-decoration: underline;
+    margin-bottom: 17px;
+
+    &:hover {
+      color: #000;
     }
   }
 }

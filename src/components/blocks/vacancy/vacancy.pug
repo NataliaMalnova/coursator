@@ -1,0 +1,18 @@
+section.salary-sctn.mt-tp-6#vacancy(
+    data-event-slr-sctn=""
+    data-event-arrw-cd='<a class="salary-sctn__line-button d-f ai-c jc-c" href="#"> <img class="salary-sctn__line-button-icon" src="images/icons/arrow-right-white.svg" alt="" loading="lazy" /></a>'
+)
+    .container
+        .salary-sctn__head.d-f.ai-c.jc-sb
+            h2.salary-sctn__head-title Зарплаты и вакансии программистов
+            a.salary-sctn__head-link(href="#")
+                img.salary-sctn__head-link-img(src="images/content/salary-sctn-head.png", alt="") 
+        .salary-sctn__text Новые вакансии:
+        .salary-sctn__list.mt-40
+            - for(let i = 0; i < 6; i++)
+                a(href="") 
+                    span Специалист отдела продаж
+                    span от 85 000 руб. (Недвижимость)
+                    .salary-sctn__line-button
+                        img(src="images/icons/arrow-right-white.svg" alt="" loading="lazy")
+        a(href="").btn.salary-sctn__btn Все вакансии

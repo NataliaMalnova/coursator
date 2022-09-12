@@ -57,16 +57,3 @@ const logicAnchorsBreadcrumbs = () => {
     }
   }
 };
-
-// init superjob arrow
-const initSuperJob = () => {
-  const section = document.querySelector("[data-event-slr-sctn]");
-  if (section) {
-    const parent = section.querySelector(".informer");
-    const selector = ".informer_row1, .informer_row2";
-
-    for (const line of parent.querySelectorAll(selector)) {
-      line.insertAdjacentHTML("beforeend", section.dataset.eventArrwCd.replace('href="#"', `href="${line.querySelector('a').href}"`));
-    }
-  }
-};

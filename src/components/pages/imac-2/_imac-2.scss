@@ -362,7 +362,8 @@ span.flatpickr-weekday {
       width: 21px;
       height: 21px;
       right: -10px;
-      box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.07), inset 0px 0px 6px rgba(0, 0, 0, 0.22);
+      box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.07),
+        inset 0px 0px 6px rgba(0, 0, 0, 0.22);
       cursor: grab;
       &.noUi-active {
         cursor: grabbing;
@@ -532,13 +533,6 @@ span.flatpickr-weekday {
   }
 }
 .grid-pagination {
-  margin-top: 20px;
-  @include media("tb") {
-    margin-top: 25px;
-  }
-  @include media("mb") {
-    margin-top: 30px;
-  }
   &__arrow {
     @include const-size(12px);
     @include media("mb") {
@@ -605,6 +599,9 @@ span.flatpickr-weekday {
       margin-right: 10px;
     }
   }
+
+  .btn {
+  }
 }
 .filter-button {
   @include var("background", "grey-5", $grey-5);
@@ -623,9 +620,13 @@ span.flatpickr-weekday {
   }
 }
 .courses-table {
+  a:hover {
+    color: var(--blue);
+  }
   &__search {
     width: 100%;
     max-width: 100%;
+    margin-bottom: 40px;
     &-input {
       flex: 0 1 100%;
 
@@ -781,173 +782,6 @@ span.flatpickr-weekday {
       width: 100%;
       height: 100%;
       object-fit: contain;
-    }
-  }
-}
-.salary-sctn {
-  &__head {
-    margin-bottom: -15px;
-    @include media("md") {
-      margin-bottom: 0;
-      display: block;
-    }
-    &-title,
-    &-link {
-      margin-bottom: 15px;
-    }
-    &-title {
-      margin-right: 20px;
-      @include media("md") {
-        margin-right: 0;
-        margin-bottom: 15px;
-      }
-    }
-    &-link {
-      @include media("md") {
-        margin-bottom: 0;
-      }
-      &:hover {
-        animation-name: logo;
-        animation-duration: 0.4s;
-      }
-    }
-  }
-  &__text {
-    font-weight: normal;
-    line-height: 20px;
-    margin-top: 20px;
-  }
-
-  &__line {
-    &-text {
-    }
-    &-button {
-      position: absolute;
-      right: -1px;
-      top: -1px;
-      height: calc(100% + 2px);
-      width: 85px;
-      box-shadow: 0px 4px 17px 6px rgba(0, 0, 0, 0.05);
-      border-radius: 10px;
-      @include var("background", "blue", $blue);
-      @include media("tb") {
-        width: 77px;
-      }
-      @include media("md") {
-        border-radius: 10px 0px;
-        width: 44px;
-        top: auto;
-        bottom: 0;
-        height: 44px;
-      }
-      &:hover {
-        @include var("background", "blue-hover", $blue-hover);
-      }
-      &-icon {
-        @include const-size(15px);
-        @include media("tb") {
-          @include const-size(12px);
-        }
-        @include media("mb") {
-          @include const-size(7px);
-        }
-      }
-    }
-  }
-  .informer {
-    .informer_top {
-      display: none;
-    }
-    .informer_row1,
-    .informer_row2 {
-      margin-bottom: 19px;
-      width: 100%;
-      position: relative;
-      @include var("background", "default-bg-site", $default-bg-site);
-      @include border(1px, solid, "grey", $grey);
-      border-radius: 10px;
-      min-height: 86px;
-      padding: 10px 90px 10px 30px;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-
-      font-weight: normal;
-      line-height: 140.9%;
-      color: rgba(0, 0, 0, 0.48);
-      @include media("tb") {
-        margin-bottom: 17px;
-        padding: 10px 85px 10px 30px;
-        min-height: 77px;
-        font-size: 14px;
-      }
-      @include media("md") {
-        display: block;
-        padding: 25px 55px 30px 30px;
-        min-height: 0;
-      }
-      @include media("mb") {
-        margin-bottom: 16px;
-      }
-      &:nth-child(2) {
-        margin-top: 35px;
-        @include media("mb") {
-          margin-top: 25px;
-        }
-      }
-      &:hover {
-        transform: translateY(-4px);
-        box-shadow: 0px 4px 1px rgba(35, 32, 30, 0.08);
-      }
-      a:not(.salary-sctn__line-button) {
-        font-weight: normal;
-        font-size: 18px;
-        line-height: 1.409;
-        flex: 0 0 40%;
-        margin-right: 20px;
-        // opacity: 1;
-        @include media("tb") {
-          font-size: 16px;
-        }
-        @include media("md") {
-          margin-right: 0;
-          margin-bottom: 12px;
-        }
-        &:hover {
-          @include var("color", "blue", $blue);
-        }
-      }
-      br {
-        display: none;
-      }
-      // & > *:not(a) {
-      //   font-weight: normal;
-      //   line-height: 140.9%;
-      //   opacity: 0.48;
-      //   @include media("tb") {
-      //     font-size: 14px;
-      //   }
-      //   @include media("md") {
-      //     margin-top: 12px;
-      //   }
-      // }
-    }
-    .informer_vac_all {
-      a {
-        @include var("background", "grey-5", $grey-5);
-        border-radius: 10px;
-        min-height: 86px;
-        font-weight: normal;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        line-height: 20px;
-        &:hover {
-          @include var("background", "blue", $blue);
-          @include var("color", "light-text", $light-text);
-        }
-      }
     }
   }
 }

@@ -69,8 +69,6 @@ if (document.documentElement.clientWidth <= 900 && document.querySelector('[data
 // init slider test
 initTestSlider()
 
-initSuperJob()
-
 changeActiveTags('.feedback-student__tag', 'feedback-student__tag-active')
 changeActiveTags('.feedback-student__sort-item', 'feedback-student__sort-active')
 changeActiveTag()
@@ -81,3 +79,9 @@ showModal()
 checkAssessment()
 
 scrolling()
+fixedMenu()
+openBurger()
+spinnerBtn()
+sortTable()
+sortTableMobile()
+showSpinnerNavigation()

@@ -20,17 +20,22 @@ section.reviews-sctn.mt-tp-6
     .reviews-sctn__grid.container.grid.jc-sb
         each key in [["Skillbox", 'Одна из самых масштабных онлайн-школ, большой выбор образовательных программ. Преподаватели школы — профессионалы в своей области. Заинтересованы в получении актуальных знаний и трудоустройстве выпускников.'], ["GeekBrains", 'Школа существует с 2010 года, официальная цифровая образовательная платформа Mail.ru Group. Обучают маркетингу, программированию, дизайну. Проводят бесплатные мастер-классы и интенсивы. Постоянно совершенствуют образовательные методики для повышения эффективности обучения.'], ["SkillFactory", "Школа является частью образовательной экосистемы Mail.ru Group. Обучают цифровым профессиям с нуля учеников любого возраста и без технического опыта, специализируются на программировании, разработке, аналитике данных."], ["Laba", "Бизнес-школа дистанционного обучения. Готовят менеджеров, рекрутеров, HR, маркетологов, бизнес-аналитиков. Имеют аккредитацию международного уровня HRCI и IIBA."]]
             .review-card.flex-column
-                .review-card__logo.d-f.ai-c.jc-c
-                    img.review-card__logo-img(src="images/content/action-card-logo.svg", alt="" loading="lazy")
+                a(href="").review-card__logo.d-f.ai-c.jc-c
+                    img.review-card__logo-img(src="images/content/action-card-logo-black.svg", alt="" loading="lazy")
                 .review-card__body 
                     .review-card__head.d-f.ai-c
-                        a.review-card__name.hvr-lnk(href="#")= key[0]
-                        .review-card__tag.tag-message.h-dflt.p-dflt.green.ai-c!= '<span class="bold">300</span> курсов'
+                        a.hvr-lnk(href="#").review-card__name= key[0]
                         .review-card__assessment.d-f.ai-c
                             img.review-card__assessment-icon(src="images/icons/star.svg", alt="" loading="lazy")
                             .review-card__assessment-text 4.9 <a class="hvr-lnk" href="#">(122)</a>
                     .review-card__text= key[1] 
-                +dflt-bttn({className: 'review-card__link', text: '6 ОТЗЫВОВ', hover: 'bg'})
+                .review-card__link-box.dflt-bttn.s-dflt.t-dflt.bg.d-f.ai-c.jc-se
+                    a(href="").review-card__link
+                        span.review-card__link-text.dflt-bttn__text Промокоды
+                    a(href="").review-card__link
+                         span.review-card__link-text.dflt-bttn__text  6 ОТЗЫВОВ
+                    a(href="").review-card__link
+                         span.review-card__link-text.dflt-bttn__text  Все курсы
 
 +contacts({mt: 'mt-tp-4'})
 

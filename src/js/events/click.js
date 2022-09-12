@@ -86,8 +86,8 @@ window.addEventListener("click", (e) => {
 
     let image = parent.querySelector('img')
 
-    if (image)
-      image.src = element.querySelector('img').src;
+    // if (image)
+    //   image.src = element.querySelector('img').src;
 
 
     toggleStatus({
@@ -97,9 +97,6 @@ window.addEventListener("click", (e) => {
     toggleStatus.call(element, {});
 
     buttonText.textContent = element.textContent;
-
-
-
 
     for (const grid of document.querySelectorAll(`[data-select-input-table`)) {
       const classList = grid.classList;

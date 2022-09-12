@@ -9,6 +9,23 @@ mixin main-structure-top()
         <main class="main">
         
 
+mixin main2-structure-top()
+    <!DOCTYPE html>
+    <html lang="ru">
+    include head/head.pug
+
+    <body>
+        include header/header.pug
+        include button-up/button-up.pug
+
+
+mixin content-structure()
+    <main class="main">
+
+mixin content-end-structure()
+    </main>
+
+
 mixin main-structure-bottom()
     </main>
         include footer/footer.pug

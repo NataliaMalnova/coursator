@@ -1,0 +1,90 @@
+mixin tableFree({title = [], school = [], rating =  [], price = [], duration =  [], format = [],})
+    .blok.table-block
+        table.table(data-table)
+            thead.table-thead
+                tr
+                    th
+                        .table-thead__item.d-f.ai-c
+                            span Курс
+                            .table-arrow
+                                .table-arrow--up    
+                                    include ../../image/arrow-table-up.pug
+                                .table-arrow--down
+                                    include ../../image/arrow-table-down.pug
+                    th
+                        .table-thead__item.d-f.ai-c
+                            span Школа курса
+                            .table-arrow
+                                .table-arrow--up    
+                                    include ../../image/arrow-table-up.pug
+                                .table-arrow--down
+                                    include ../../image/arrow-table-down.pug
+                    th
+                        .table-thead__item.d-f.ai-c
+                            span Рейтинг школы
+                            .table-arrow
+                                .table-arrow--up    
+                                    include ../../image/arrow-table-up.pug
+                                .table-arrow--down
+                                    include ../../image/arrow-table-down.pug
+                    th(data-type="number") 
+                        .table-thead__item.d-f.ai-c
+                            span Стоимость
+                            .table-arrow
+                                .table-arrow--up    
+                                    include ../../image/arrow-table-up.pug
+                                .table-arrow--down
+                                    include ../../image/arrow-table-down.pug
+                    th(data-type="number")  
+                        .table-thead__item.d-f.ai-c
+                            span Длительность
+                            .table-arrow
+                                .table-arrow--up    
+                                    include ../../image/arrow-table-up.pug
+                                .table-arrow--down
+                                    include ../../image/arrow-table-down.pug
+                    th
+                        .table-thead__item.d-f.ai-c
+                            span Формат
+                            .table-arrow
+                                .table-arrow--up    
+                                    include ../../image/arrow-table-up.pug
+                                .table-arrow--down
+                                    include ../../image/arrow-table-down.pug
+                    th
+                        .table-thead__item.d-f.ai-c
+                            span Ссылка
+            tbody.table-tbody
+                each con, item in title
+                    tr
+                        td  
+                            .table-tbody__item.d-f.ai-c
+                                a(href="").table-tbody__text= title[item]
+                        td 
+                            .table-tbody__item.d-f.ai-c
+                                a(href="#")
+                                    img.table-tbody__logo(src="images/content/courses-table-logo.svg", alt="" loading="lazy")
+                                    .table-tbody__text= school[item]
+                        td
+                            .table-tbody__item.d-f.ai-c
+                                img.table-tbody__star(src="images/icons/star.svg", alt="" loading="lazy")
+                                a(href="").table-tbody__rating.table-tbody__text.d-f.ai-c= rating[item]
+                                span.table-tbody__rating &nbsp;(122)
+                        td
+                            .table-tbody__item.d-f.ai-c
+                                img.courses-table__icon(src="images/icons/coins.svg", alt="" loading="lazy")
+                                .d-f
+                                    p.table-tbody__text= price[item]
+                                    span &nbsp;₽
+                        td
+                            .table-tbody__item.d-f.ai-c
+                                img.courses-table__icon(src="images/icons/clock.svg", alt="" loading="lazy")
+                                p.table-tbody__text= duration[item]
+                        td
+                            .table-tbody__item.d-f.ai-c
+                                img.courses-table__icon(src="images/icons/clock.svg", alt="" loading="lazy")
+                                p.table-tbody__text= format[item]
+                        td
+                            .table-tbody__item.d-f.ai-c
+                                a(href="").table-tbody__link.d-f.ai-c Ссылка на курс
+                                    img.courses-table__icon-link(src="images/icons/arrow-right-blue.svg", alt="" loading="lazy")

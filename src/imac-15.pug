@@ -1,0 +1,291 @@
+
+include components/structure-page/main.pug
+
+include components/blocks/dflt-bttn/dflt-bttn.pug
+include components/blocks/dflt-chckbx/dflt-chckbx.pug
+include components/blocks/course-card/course-card.pug
+include components/blocks/contacts/contacts.pug
+include components/blocks/breadcrumbs/breadcrumbs.pug
+include components/blocks/tag/tag.pug
+include components/blocks/table/table.pug
+include components/blocks/table/tableFree.pug
+include components/blocks/table/tableMobile.pug
+include components/blocks/table/tableFreeMobile.pug
+include components/blocks/select/select.pug
+
+mixin content-grid-scroll({title, ind = 1})
+    .content-grid__title= title
+    .content-grid__list(data-scroll-dflt="")
+        each key, index in ['City Business School', 'Contented', 'Convert Monster', "QMARKETING ACADEMY", "SF Education", 'XYZ School', 'Контур школа', 'Хекслет', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school']
+            +dflt-chckbx({className: 'content-grid__list-element', text: key, index: `cg-${ind}-${index}`})
+
++main2-structure-top()
++content-structure()
++breadcrumbs({links: ["Главная", "Курсы"]})
+
+.container
+    h1.center Курсы программирования
+
+section.container.mt-35.d-f
+    .course-categories(data-blok-more)
+        div.course-categories__content(data-blok-more-content)
+            +tag({classColor:"tag-color--white-blue", value: ["Web-разработка", "Python-разработка", "Мобильная разработка", "JavaScript-разработка", "Frontend-разработка", "Разработка игр", "Java-разработка", "Системное администрирование", "Android-разработка", "PHP-разработка", "Верстка на HTML/CSS", "DevOps", "QA-тестирование", "Управление разработкой и IT", "IOS-разработка", "Разработка игр на Unity", "Разработка на C#", "Информационная безопасность"]})  
+        p.tx-small.link-blue.mt-20(data-blok-more-open data-block-more-close="Скрыть") Все категории
+
+
++content-end-structure()
+
+include ./components/pages/imac-15/course-anchors.pug
+.course-anchors__burger
+    button.burger.burger-menu.flex-column.jc-sb
+        span.burger__line
+        span.burger__line
+        span.burger__line  
+
++content-structure()
+
+.container.mt-35
+    section.inner-text.txt-tp-3 Сравнивайте лучшие курсы по программированию в различных областях и найдите подходящее предложение. Здесь представлено 241 платных онлайн курсов, которые помогут вам стать грамотными специалистами. А если вы не уверены в выборе профессии, сначала попробуйте бесплатные варианты. Большой выбор обучающих программ по цене, продолжительности, формату, отзывам, условиям рассрочки. Мы поддерживаем информацию о всех курсах проверенных школ в актуальном состоянии.
+
+.container.mb.mt-35
+    section.subscribe-block.sctn-crd.mb.pd-tp-2
+        img.subscribe-block__bg.tp-2(src="images/content/subscribe-block-2.png", alt="")
+        .subscribe-block__title.ttl-tp-3 Не получается подобрать курс?
+        .subscribe-block__tag.tag-message.h-dflt.p-gig.red.ai-c.bold Пройдите тест, который поможет выбрать более точное направление
+        +dflt-bttn({className: 'subscribe-block__link', text: 'ПРОЙТИ ТЕСТ', size: '3', icon: true})
+        
+.container.mb.mt-35
+    section.subscribe-block.sctn-crd.mb.pd-tp-2
+        img.subscribe-block__bg.tp-2(src="images/content/subscribe-block-3.png", alt="")
+        .subscribe-block__title.ttl-tp-3 Вам важно чтобы курс был в рассрочку?
+        .subscribe-block__buttons.d-f
+            each key in ["да", "НЕТ", "ОТМЕНИТЬ ФИЛЬТРАЦИЮ"]
+                a.subscribe-block__button.d-f.ai-c(href="#")= key
+
+section.mt-tp-9#course-filter
+    .container
+        h2 Курсы с фильтрами
+        form.filter-line.d-f.mt-tp-3
+            input.filter-line__text(type="text" placeholder="Ключевые слова")
+            .filter-line__select.dropdown-select(data-event-drpdwn-slct="")
+                input.hidden(data-event-drpdwn-slct-inpt="" type="text" value="Программирование")
+                button.filter-line__select-button.dropdown-select__button.d-f.ai-c.jc-sb(data-event-drpdwn-slct-bttn="")
+                    span.filter-line__select-button-text.dropdown-select__button-text(data-event-drpdwn-slct-bttn-txt="") Программирование
+                    img.filter-line__select-button-icon.dropdown-select__button-icon.icon-size(src="images/icons/arrow-down-black.svg", alt="" loading="lazy")
+                .dropdown-select__modal(data-event-drpdwn-slct-mdl="")
+                    .dropdown-select__modal-search
+                        input.dropdown-select__modal-search-input(type="text" data-event-drpdwn-slct-srch="")
+                    .dropdown-select__modal-inner(data-scroll-dflt="")
+                        each key, index in [["Все категории", []], ["Программирование", ["Web-разработка", "Python-разработка", "Мобильная разработка", "Верстка на HTML/CSS"]], ["Управление", ["Product-менеджмент", "HR и управление персоналом", "Управление бизнесом", "Финансовая аналитика"]], ["Дизайн", ["Web-дизайн", 'Графический дизайн', "UX/UI дизайн", "3D-моделирование"]], ["Маркетинг", ["SMM-продвижение", "Интернет-маркетинг"]], ["Аналитика", ["Big Data"]], ["Создание контента", ["Копирайтинг", 'Контент-маркетинг', "Создание и монтаж видео", "Съемка и обработка фото", "3D-анимация", "Sound-дизайн и звукорежиссура", "Блогерство"]]]
+                            label.dropdown-select__modal-element.title(
+                                class= index === 1 ? 'active' : null
+                                data-event-drpdwn-slct-elmnt=""
+                            )= key[0]
+                            each label in key[1]
+                                label.dropdown-select__modal-element(data-event-drpdwn-slct-elmnt="")= label
+                        .dropdown-select__modal-empty.hidden(data-event-drpdwn-slct-empt) Совпадений не найдено
+            +dflt-bttn({tag: 'a', className: 'filter-line__button', text: 'Поиск', size: '2', hover: 'bg'})
+        button.filter-button.d-f.jc-sb.ai-c.mt-tp-8(data-event-fltr-bttn="")
+            span.filter-button__text ФИЛЬТРОВАТЬ
+            img.filter-button__icon.icon-size(src="images/icons/settings.svg", alt="" loading="lazy")
+
+section.content-grid.mt-tp-1.container.d-f
+    form.content-grid__toolbar.d-f.dflt(data-modal-tlbr="")
+        .dflt(data-modal-tlbr-wndw="")
+            div(data-modal-tlbr-cntnt="")
+                each blk in [["ЦЕНА", ["0", "100000"]], ["РАССРОЧКА", ["0", "175000"]]]
+                    .content-grid__title= blk[0]
+                    div(data-event-rng="")
+                        .content-grid__inputs.d-f.jc-sb
+                            each key in blk[1]
+                                label.content-grid__input.short.d-f.ai-c
+                                    input.content-grid__input-text(
+                                        data-event-rng-inpt=""
+                                        type="text" 
+                                        value= key
+                                    )
+                                    .content-grid__input-value ₽
+                        .content-grid__slider(
+                            data-range-dflt=""
+                            data-range-min=blk[1][0]
+                            data-range-max=blk[1][1]
+                            data-range-start=blk[1][0]
+                            data-range-end=blk[1][1]
+                        )
+                
+                +content-grid-scroll({title: 'ШКОЛА', ind: 0})
+                
+                .content-grid__title НАЧАЛО
+                label.content-grid__date.d-f.ai-c.jc-sb
+                    input.content-grid__date-input(type="text" data-datepicker="" placeholder="Выберите дату")
+                    img.content-grid__date-icon.icon-size(src="images/icons/calendar.svg", alt="" loading="lazy")
+
+                each blk in [["ДЛИТЕЛЬНОСТЬ", ["1", "24"]]]
+                    .content-grid__title= blk[0]
+                    div(data-event-rng="")
+                        .content-grid__inputs.d-f.jc-sb
+                            each key in blk[1]
+                                label.content-grid__input.short.d-f.ai-c
+                                    input.content-grid__input-text(
+                                        data-event-rng-inpt=""
+                                        type="text" 
+                                        value= key
+                                    )
+                        .content-grid__slider(
+                            data-range-dflt=""
+                            data-range-min=blk[1][0]
+                            data-range-max=blk[1][1]
+                            data-range-start=blk[1][0]
+                            data-range-end=blk[1][1]
+                        )
+
+                each key,index in ["ФОРМАТ", "ОСОБЕННОСТИ"]
+                    +content-grid-scroll({title: key, ind: index + 1})
+
+                +dflt-bttn({tag: 'button', className: 'content-grid__button bttn-spinner', text: 'ФИЛЬТРОВАТЬ', size: '2', hover: 'bg', type: 'button'})
+        button.content-grid__toolbar-close.modal__close.d-f.ai-c.jc-c.dflt(data-event-mdl-cls="")
+            img.modal__close-icon(src="images/icons/close-black.svg", alt="" loading="lazy")
+    .content-grid__table 
+        .content-grid__table-head.d-f.jc-sb
+            .content-grid__table-head-text.content-grid__table-text <span class="desktop">ОТОБРАЖАЮТСЯ </span>1-11 ИЗ 241 РЕЗУЛЬТАТОВ
+            form.content-grid__table-head-filter.d-f
+                .content-grid__table-text СОРТИРОВАТЬ ПО:
+                .content-grid__table-select.dropdown-select.d-f.ai-c.md(data-event-drpdwn-slct="")
+                    input.hidden(data-event-drpdwn-slct-inpt="" type="text" value="Релевантность")
+                    select.content-grid__table-select-mob.dropdown-select__mob(data-event-drpdwn-slct-mb="")
+                        each key in ["Релевантность", "Заголовок", "Цена ↑", "Цена ↓", "Рассрочка ↑", "Рассрочка ↓", "Начало ↑"]
+                            option(value=key)= key
+                    button.content-grid__table-select-button.dropdown-select__button.d-f.ai-c.jc-sb(data-event-drpdwn-slct-bttn="")
+                        span.content-grid__table-select-button-text.dropdown-select__button-text(data-event-drpdwn-slct-bttn-txt="") Релевантность
+                        img.content-grid__table-select-button-icon.dropdown-select__button-icon.icon-size(src="images/icons/arrow-down-black.svg", alt="" loading="lazy")
+                    .content-grid__table-select-modal.dropdown-select__modal(data-event-drpdwn-slct-mdl="")
+                        .dropdown-select__modal-inner(data-scroll-dflt="")
+                            each key, index in ["Релевантность", "Заголовок", "Цена ↑", "Цена ↓", "Рассрочка ↑", "Рассрочка ↓", "Начало ↑"]
+                                label.dropdown-select__modal-element(
+                                    class= index === 0 ? 'active' : null
+                                    data-event-drpdwn-slct-elmnt=""
+                                )= key
+                            .dropdown-select__modal-empty.hidden(data-event-drpdwn-slct-empt) Совпадений не найдено
+        .content-grid__table-list
+            .content-grid__table-block.grid.jc-sb
+                - for(let i = 0; i < 6; i++)
+                    +course-card(i, 0, 'content-grid__table-block-element')
+            .content-grid__table-block.course-hidden.grid.jc-sb
+                - for(let i = 0; i < 6; i++)
+                    +course-card(i, 0, 'content-grid__table-block-element')
+            .content-grid__table-block.course-hidden.grid.jc-sb
+                - for(let i = 0; i < 6; i++)
+                    +course-card(i, 0, 'content-grid__table-block-element')
+            .content-grid__table-block.course-hidden.grid.jc-sb
+                - for(let i = 0; i < 6; i++)
+                    +course-card(i, 0, 'content-grid__table-block-element')
+        .course-spinner.d-f.jc-c
+            svg.spinner(viewbox='0 0 50 50')
+                circle.path(cx='25', cy='25', r='20', fill='none', stroke-width='5')
+        .grid-pagination.d-f.ai-c.jc-c#paginationCourse.mt-40
+            button.btn.btn__white-blue.btn-big Загрузить еще
+
+section.courses-table(
+    id= 'course-list'
+    class='mt-tp-2'
+)
+    .container
+        h2 Платные курсы
+        form.courses-table__search.d-f.mt-tp-3
+            input.courses-table__search-input(type="text", placeholder="Поиск")
+            button.courses-table__search-button.d-f.ai-c.jc-c
+                img(src="images/icons/loupe.svg", alt="" loading="lazy")
+        .courses-table_sort
+            .d-f.ai-c
+                p.tx-small Сортировка:
+                +select({title: 'По рейтингу школ', value: ["По рейтингу школ", "По стоимости", "По рассрочке", "По дате начала", "По длительности"], dataValue: ["rating", "cost", "installment", "date", "duration"], img: true})
+
+            +tableMobile({
+                title: ['Онлайн-курс по PHP', 'Веб-разработчик с нуля до PRO', 'Веб-разработчик с нуля', 'Онлайн-курс по PHP2'], 
+                school: ['Нетология', 'Skillbox', 'HTML Academy', 'HTML Academy'], 
+                rating: ['4.9', '4.9', '4.9', '3.9'], 
+                price: ['23 400', '70 800', '159 600', '6 000'], 
+                payment: ['', '11 000', '55 900', '120 900'], 
+                date:  ['В любой момент', '13.10.2021', 'В любой момент', '29.10.2021'], 
+                duration:  ['3 месяца', '10 месяцев', '2 месяца', '12 месяцев']
+            })
+        +table({
+            title: ['Онлайн-курс по PHP', 'Веб-разработчик с нуля до PRO', 'Веб-разработчик с нуля', 'Онлайн-курс по PHP2'], 
+            school: ['Нетология', 'Skillbox', 'HTML Academy', 'HTML Academy'], 
+            rating: ['4.9', '4.9', '4.9', '3.9'], 
+            price: ['23 400', '70 800', '159 600', '6 000'], 
+            payment: ['', '11 000', '55 900', '120 900'], 
+            date:  ['В любой момент', '13.10.2021', 'В любой момент', '29.10.2021'], 
+            duration:  ['3 месяца', '10 месяцев', '2 месяца', '12 месяцев']
+        })
+
+section.courses-table(
+    id= 'course-free'
+    class= 'mt-tp-6'
+)
+    .container
+        h2 Бесплатны курсы
+        form.courses-table__search.d-f.mt-tp-3
+            input.courses-table__search-input(type="text", placeholder="Поиск")
+            button.courses-table__search-button.d-f.ai-c.jc-c
+                img(src="images/icons/loupe.svg", alt="" loading="lazy")
+        .courses-table_sort
+            .d-f.ai-c
+                p.tx-small Сортировка:
+                +select({title: 'По рейтингу школ', value: ["По рейтингу школ", "По стоимости", "По длительности"], dataValue: ["rating", "cost", "duration"], img: true})
+
+            +tableFreeMobile({
+                title: ['Онлайн-курс по PHP', 'Веб-разработчик с нуля до PRO', 'Веб-разработчик с нуля', 'Онлайн-курс по PHP2'], 
+                school: ['Нетология', 'Skillbox', 'HTML Academy', 'HTML Academy'], 
+                rating: ['4.9', '4.9', '4.9', '3.9'], 
+                price: ['23 400', '70 800', '159 600', '6 000'], 
+                duration:  ['3 месяца', '10 месяцев', '2 месяца', '12 месяцев'],
+                format:  ['Видеозанятия в записи + домашние задания', 'Руководство', 'Видеозанятия в записи', 'Видеозанятия в записи']
+            })
+        +tableFree({
+            title: ['Онлайн-курс по PHP', 'Веб-разработчик с нуля до PRO', 'Веб-разработчик с нуля', 'Онлайн-курс по PHP2'], 
+            school: ['Нетология', 'Skillbox', 'HTML Academy', 'HTML Academy'], 
+            rating: ['4.9', '4.9', '4.9', '3.9'], 
+            price: ['23 400', '70 800', '159 600', '6 000'], 
+            duration:  ['3 месяца', '10 месяцев', '2 месяца', '12 месяцев'],
+            format:  ['Видеозанятия в записи + домашние задания', 'Руководство', 'Видеозанятия в записи', 'Видеозанятия в записи']
+        })
+
+include ./components/blocks/vacancy/vacancy.pug
+
+section.standart
+    .container
+        p Курсы frontend-разработчика открывают доступ в нишу для тех, кому близка тема создания сайтов и приложений. Фронтендеры отвечают за презентабельность и эргономичность программного продукта. В их зоне ответственности пользовательский интерфейс, причем объем работы значительно шире, чем у верстальщиков. 
+        p Результат работы frontend-специалиста выходит за рамки картинки. Он выстраивает интуитивно понятную структуру, оптимизирует процесс поиска пользователем нужной информации, оживляет сайт за счет встраивания динамических объектов, обеспечивает корректность отображения в разных браузерах и мобильных устройствах.
+        p Навыки фронтенда складываются из умения пользоваться определенным набором инструментов:
+        ul 
+            li HTML-верстка, в том числе кроссбраузерная и адаптивная, знание шаблонизаторов;
+            li CSS с учетом популярных фреймворков;
+            li JavaScript в его наиболее оптимизированной версии Ecmascript 6;
+            li Базовое владение консолью;
+            li пакетный менеджер NPM;
+            li системы контроля версий – Git, Bazaar, Darcs и другие;
+            li системы сборки фронтенда – Gulp, Grunt, Broccolli и аналогичные;
+            li фреймворки – Angular, React, Vue.js;
+            li текстовый редактор;
+            li дополнительно – английский язык.
+        p Курс по фронтенду – способ освоить высокооплачиваемую профессию, она считается одной из самых востребованных в IT-сфере. На популярных сервисах поиска работы HeadHunter, SuperJob, Avito работодатели выставляют вакансии со средней зарплатой 150000-200000 рублей. Опытный фронтендер сможет самостоятельно искать интересные заказы на фрилансе, в том числе и за рубежом.
+
+        p При желании войти в профессию с нуля стоит обратить внимание на освоение общих принципов разработки и фундаментальных прикладных знаний. Средняя продолжительность онлайн-курсов по frontend-направлению около года. Первые несколько месяцев посвящены введению в программирование, далее изучаются инструменты, применение которых оттачивается на практике. Выпускникам большинства школ оказывается помощь в трудоустройстве. Стартом в карьере станет стажировка, а через год специалист получит статус junior и сможет претендовать на зарплату 50000-90000 рублей.
+
+        p Мобильные технологии, наполнение браузеров, обилие электронных устройств с доступом к сети, меняющиеся требования к интерфейсам требуют от frontend-программиста постоянного повышения знаний и прокачки навыков.
+
+        p Coursator.online собрал для пользователей лучшие курсы по фронтенду для новичков и специалистов с опытом. Среди более чем 20 предложений есть и бесплатные варианты для ознакомления со специальностью и принятия решения о дальнейшем развитии в ней. 
+
+section.course-other-block.d-f
+    .container
+        h2 Другие категории курсов по программированию
+        .course-other(data-blok-more)
+            div.course-other__content(data-blok-more-content)
+                +tag({classColor:"tag-color--white-blue", value: ["Web-разработка", "Python-разработка", "Мобильная разработка", "JavaScript-разработка", "Frontend-разработка", "Разработка игр", "Java-разработка", "Системное администрирование", "Android-разработка", "PHP-разработка", "Верстка на HTML/CSS", "DevOps", "QA-тестирование", "Управление разработкой и IT", "IOS-разработка", "Разработка игр на Unity", "Разработка на C#", "Информационная безопасность"]})  
+            p.tx-small.link-blue.mt-20(data-blok-more-open data-block-more-close="Скрыть") Все категории
+
++contacts({mt: 'mt-tp-4'})
+
++main-structure-bottom()
+

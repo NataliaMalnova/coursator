@@ -95,7 +95,11 @@ const showMoreBlok = () => {
     const open = element.querySelector('[data-blok-more-open]');
     const content = element.querySelector('[data-blok-more-content]');
 
-    if (!open || !content) return
+    if (!open || !content) return;
+
+    const textOpen = open.innerHTML;
+    let textClose = 'Скрыть';
+    if (open.hasAttribute('data-block-more-close')) textClose = open.getAttribute('data-block-more-close')
 
     let heightStart = content.offsetHeight;
     content.style.setProperty('max-height', heightStart + 'px');
@@ -103,11 +107,11 @@ const showMoreBlok = () => {
     open.addEventListener('click', () => {
       if (content.classList.contains('active')) {
         content.style.setProperty('max-height', heightStart + 'px');
-        open.innerHTML = 'Читать полностью'
+        open.innerHTML = textOpen
         setTimeout(() => content.classList.remove('active'), 600);
       } else {
         content.classList.add('active');
-        open.innerHTML = 'Скрыть';
+        open.innerHTML = textClose;
         content.style.setProperty('max-height', content.scrollHeight + 'px');
       }
     })

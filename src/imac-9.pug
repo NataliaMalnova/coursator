@@ -184,20 +184,7 @@ each sctn in [["course-list", "Платные курсы", "mt-tp-2"], ["course-
                             a.courses-table__link(href="#") Посетить
                             img.courses-table__icon-link(src="images/icons/arrow-right-blue.svg", alt="" loading="lazy")
 
-section.salary-sctn.mt-tp-6#vacancy(
-    data-event-slr-sctn=""
-    data-event-arrw-cd='<a class="salary-sctn__line-button d-f ai-c jc-c" href="#"> <img class="salary-sctn__line-button-icon" src="images/icons/arrow-right-white.svg" alt="" loading="lazy" /></a>'
-)
-    .container
-        .salary-sctn__head.d-f.ai-c.jc-sb
-            .salary-sctn__head-title.ttl-tp-2 Зарплаты и вакансии программистов
-            a.salary-sctn__head-link(href="#")
-                img.salary-sctn__head-link-img(src="images/content/salary-sctn-head.png", alt="") 
-        .salary-sctn__text Новые вакансии:
-
-        script(type='text/javascript' src='https://www.superjob.ru/export/informer/showinformer.html?vac_quantity=4&order=1&charset=UTF-8')
-
-
+include ./components/blocks/vacancy/vacancy.pug
 
 section.top-shools.mt-tp-2#school
     .container

@@ -9,10 +9,12 @@ mixin course-card(i = 0, j = 0, className = false, color = false, bg = false)
                     a.course-card__tag.d-f.ai-c(href="#")= key
         .course-card__body.flex-column
             .course-card__head.d-f.jc-sb
-                a.course-card__head-title.hvr-lnk(href="#")= i == 0 ? 'Веб-разработчик' : 'Google Sheets и Exсel'
+                h3.course-card__head-title.hvr-lnk(href="#")= i == 0 ? 'Веб-разработчик' : 'Google Sheets и Exсel'
                 .course-card__head-assessment.d-f
                     img.course-card__head-assessment-icon.icon-size(src="images/icons/star.svg", alt="" loading="lazy")
-                    .course-card__head-assessment-text 4.9 <a class="grey" href="#">(122)</a>
+                    a(href="").course-card__head-assessment-text 4.9 
+                        span.grey (122)
+            a(href="" class="course-card__linkMore") Подробнее о курсе
 
             - arr = i == 0 ? ["<span class='bold'>Начало:</span> 17.08.2021", "<span class='bold'>Длительность:</span> 8 месяцев", "<span class='bold'>Занятия:</span> 2-3 занятия в неделю", "<span class='bold'>Формат:</span> онлайн-лекции, домашние задания с фидбеком от преподавателей", "<span class='bold'>Особенности:</span> постоянная практика, актуальная программа обучения, чат с одногруппниками. После обучение все студенты проходят стажировку"] : ["<span class='bold'>Начало:</span> В любой момент", "<span class='bold'>Длительность:</span> 2 месяца", "<span class='bold'>Занятия:</span> 2 лекции в неделю + практика", "<span class='bold'>Формат:</span> видеоуроки, практические занятия в формате домашних заданий, обратная связь от наставников", "<span class='bold'>Особенности:</span> нету."]
             each key, index in arr

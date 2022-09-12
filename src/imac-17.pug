@@ -1,0 +1,175 @@
+
+include components/structure-page/main.pug
+
+include components/blocks/dflt-bttn/dflt-bttn.pug
+include components/blocks/dflt-chckbx/dflt-chckbx.pug
+include components/blocks/course-card/course-card.pug
+include components/blocks/contacts/contacts.pug
+include components/blocks/breadcrumbs/breadcrumbs.pug
+
+include components/blocks/feedback-box/feedback-box.pug
+include components/blocks/raiting/raiting.pug
+include components/image/star.pug
+include components/blocks/overlay/overlay-comment.pug
+include components/blocks/overlay/overlay-feedback.pug
+include components/blocks/tag/tag.pug
+
+mixin content-grid-scroll({title, ind = 1})
+    .content-grid__title= title
+    .content-grid__list(data-scroll-dflt="")
+        each key, index in ['City Business School', 'Contented', 'Convert Monster', "QMARKETING ACADEMY", "SF Education", 'XYZ School', 'Контур школа', 'Хекслет', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school', 'City busines school']
+            +dflt-chckbx({className: 'content-grid__list-element', text: key, index: `cg-${ind}-${index}`})
+
++main-structure-top()
+
++breadcrumbs({links: ["Главная", "Курсы", "Программирование", "Профессия Fullstack-разработчик"]})
+
+section.promo
+    .container
+         .promo__wrapper
+            .promo__wrapper-item
+                .duration__item Длительность: 6 месяцев
+                h1.title__item Профессия Fullstack-разработчик на JavaScript от SkillFactory
+                button.subcategories__item
+                    a(href="") Программирование
+                button.subcategories__item#subcategories__item2
+                    a(href="") Java-разработка
+                button.subcategories__item
+                    a(href="") Все курсы Skillbox
+                p.subtitle__item На курсе вы научитесь создавать корпоративные приложения и встраивать их в инфраструктуру бизнеса.
+                .bonuses
+                    .bonuses__item
+                        img(src="images/course/bonus2.svg", alt="bonuses__item")
+                        div Общение с <br> экспертами
+                    .bonuses__item
+                        img(src="images/course/bonus1.svg", alt="bonuses__item")
+                        div Доступ к курсу <br> навсегда
+                    .bonuses__item
+                        img(src="images/course/bonus3.svg", alt="bonuses__item")
+                        div Практика на <br> реальных проектах
+            .promo__wrapper-item
+                .promo__card
+                    .card__rating 
+                        +rating({classBig: true})
+                    .card__all-reviews
+                        a(href="") все отзывы о школе
+                    .divider
+                    .card__price
+                        span.card__price-past 166 777 ₽ / курс
+                        span.card__price-current 98 150 ₽ / курс
+                        span.card__price-mounth от 6 777 ₽ / месяц
+                    .divider
+                    .discount__wrapper.d-f.jc-sa
+                        .discount__wrapper-item.d-f.ai-c
+                            img(src="images/course/discount-circle.svg", alt="circle")
+                            span.flex-column скидка
+                                span.flex-column 30%
+                        .discount__wrapper-item.d-f.ai-c
+                            img(src="images/course/discount-circle.svg", alt="circle")
+                            span.flex-column рассрочка
+                                span.flex-column 24 месяца
+                    .divider
+                    .btn__wrapper-enroll.d-f.jc-c
+                        button.d-f.jc-c.ai-c.btn.btn-square.btn-blue записаться на курс
+    .promo__circle
+
+section.about
+    .navigation__btnwrapper
+        button.navigation__btnwrapper-item.active-btnwrapper-item О курсе
+        button.navigation__btnwrapper-item Отзывы
+        button.navigation__btnwrapper-item Акции
+        button.navigation__btnwrapper-item Курсы
+    .container
+        .about__wrapper
+            .about__wrapper-item
+                h2.about__title.title-fz28 О курсе: "Профессия Fullstack-разработчик на JavaScript" от SkillFactory</h2>
+                p С помощью курса вы углубитесь в разработку на Java и научитесь создавать микросервисную архитектуру приложений, познакомитесь со стандартами корпоративной разработки, освоите Spring, Maven и другие инструменты.<br><br> Вы прокачаете свои навыки и повысите свою ценность в глазах работодателя.</p>
+            img(src="images/course/fullstack.png", alt="fullstack")
+        .divider
+        .aboutcards__wrapper
+            .aboutcards__wrapper-item
+                h3.aboutcards__wrapper-title Для кого курс
+                p.aboutcards__wrapper-text Курс "Enterprise технологии в Java-разработке" подойдет:
+                span.aboutcards__wrapper-junior junior-разработчикам
+                span.aboutcards__wrapper-middle middle-разработчикам на Java
+            .aboutcards__wrapper-item
+                h3.aboutcards__wrapper-title Формат проведения
+                p.aboutcards__wrapper-text Курс "Enterprise технологии в Java-разработке" подойдет:
+                span.aboutcards__wrapper-junior junior-разработчикам
+                span.aboutcards__wrapper-middle middle-разработчикам на Java
+            .aboutcards__wrapper-item
+                h3.aboutcards__wrapper-title Чему вы научитесь
+                p.aboutcards__wrapper-text Курс "Enterprise технологии в Java-разработке" подойдет:
+                span.aboutcards__wrapper-junior junior-разработчикам
+                span.aboutcards__wrapper-middle middle-разработчикам на Java
+            .aboutcards__wrapper-item
+                h3.aboutcards__wrapper-title Результат обучения
+                p.aboutcards__wrapper-text Курс "Enterprise технологии в Java-разработке" подойдет:
+                span.aboutcards__wrapper-junior junior-разработчикам
+                span.aboutcards__wrapper-middle middle-разработчикам на Java
+        button.btn.btn-square.btn-white.btn-center.about__course-btn Узнать подробнее о курсе
+        .startcards__wrapper
+            .startcards__wrapper-item
+                .start__wrapper
+                    .start__wrapper-item Начало
+                    .start__wrapper-item Длительность
+                    .start__wrapper-item Занятия
+                    .start__wrapper-item#after-study После обучения
+                    .start__wrapper-item Для кого
+                    .start__wrapper-item Школа
+                .start__wrapper
+                    .start__wrapper-item 15.06.2022
+                    .start__wrapper-item 6 месяцев
+                    .start__wrapper-item 10-15 часов в неделю
+                    .start__wrapper-item диплом
+                    .start__wrapper-item с опытом
+                    .start__wrapper-item SkillFactory
+            .startcards__wrapper-item.item-format
+                .format__item Формат
+                .format__item-text онлайн-уроки, практические интерактивные задания в формате тренажеров, работа над проектами
+                .format__item Особенности
+                .format__item-text проверка домашних заданий и проектов, обратная связь от наставника, высокоинтенсивный формат обучения
+
+.container
+    section.feedback-student
+        h3.ttl-tp-2 Отзывы выпускников о курсах SkillFactory
+        +feedbackBox()
+        +feedbackBox()
+        +feedbackBox()
+        a(href="" class="link-blue feedback-box__link") Показать еще
+        +dflt-bttn({ className: 'feedback__ui-button', size: 2, text: 'ОСТАВИТЬ ОТЗЫВ',  dataShowModal: 'overlay__feedback'})
+
+section.courses
+    .container
+        h2.courses__title.title-fz28 Другие актуальные курсы
+        .courses__wrapper
+            - for(let i = 0; i < 12; i++)
+                .courses__wrapper-item
+                    h4.course__name Курс UI/UX Дизайн от SkillFactory
+                    .price__wrapper
+                        span.price__wrapper-item 6 месяцев
+                        span.price__wrapper-item-mounth 4 150 ₽ / мес
+                    .divider 
+                    a(href="").more__info Подробнее
+        .divider
+
+section.course-other-block.d-f
+    .container
+        h2 Другие категории курсов по программированию
+        .course-other(data-blok-more)
+            div.course-other__content(data-blok-more-content)
+                +tag({classColor:"tag-color--white-blue", value: ["Web-разработка", "Python-разработка", "Мобильная разработка", "JavaScript-разработка", "Frontend-разработка", "Разработка игр", "Java-разработка", "Системное администрирование", "Android-разработка", "PHP-разработка", "Верстка на HTML/CSS", "DevOps", "QA-тестирование", "Управление разработкой и IT", "IOS-разработка", "Разработка игр на Unity", "Разработка на C#", "Информационная безопасность"]})  
+            p.tx-small.link-blue.mt-20(data-blok-more-open data-block-more-close="Скрыть") Все категории
+ 
+.fixed__block-wrapper
+    .container#conteiner__fixed
+        .fixed__block-item
+            .fixed__block-title Профессия Fullstack-разработчик <br> на JavaScript от SkillFactory
+            .fixed__block-subtitle 98 150 ₽ / курс
+            button.btn.btn-enroll.btn-enroll-fixed записаться на курс
+
++contacts({mt: 'mt-tp-4'})
+
++main-structure-bottom()
++modalComment()
++modalFeedback()

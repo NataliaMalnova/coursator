@@ -29,63 +29,120 @@ section.main-head.flex-column.jc-c
                         .tag-message.h-dflt.p-dflt.green.ai-c!= '<span class="bold">300</span> курсов'
                         .areas-card__text.txt-tp-2= key
                     img.areas-card__picture(src=`images/content/areas-card-${index + 1}.svg`, alt="" loading="lazy")
-
-section.top-shools.mt-tp-2
-    .container
-        .ttl-tp-2 Топ школ
-        .top-shools__grid.grid.mt-tp-3
-            each key in ["1", "2", "3", "4","1", "2", "3", "4","1", "2", "3", "4"]
-                a.top-shools__element.bttn-hvr.d-f.ai-c.jc-c(href="#") 
-                    img.top-shools__element-img(src=`images/content/top-shools-${key}.svg`, alt="" loading="lazy")
-
-section.top-courses.mt-tp-2
-    .container
-        .top-courses__head.d-f.ai-c.jc-sb
-            .top-courses__head-title.ttl-tp-2 Топ курсов
-            .top-courses__head-select.select-input(data-select-input="")
-                button.select-input__button.d-f.ai-c(data-evnt-slct-bttn="")
-                    span.select-input__button-text(data-evnt-slct-bttn-txt="") Программирование
-                    img.select-input__button-icon.icon-size(src="images/icons/arrow-down-black.svg", alt="" loading="lazy")
-                .select-input__modal 
-                    each key, index in ["Программирование", "Управление", "Дизайн", "Маркетинг", "Аналитика", "Создание контента"]
-                        button.select-input__modal-element(
-                            data-select-input-element= index + 1
-                            class = index == 0 ? 'active' : null
-                        )= key
-        - for (let j = 0; j < 6; j++)
-            .top-courses__grid.grid.mt-tp-3(
-                data-select-input-table= j + 1
-                class= j != 0 ? 'hidden' : null
-            )
-                - for(let i = 0; i < 3; i++)
-                    +course-card(i, j)
-
-.container.mb.mt-tp-4
-    section.subscribe-block.sctn-crd.mb.pd-tp-2
-        img.subscribe-block__bg.tp-1(src="images/content/subscribe-block.png", alt="")
-        .tag-message.h-big.p-big.green.ai-c Получайте все новости
-        .subscribe-block__title.ttl-tp-3.mt Подпишитесь на email рассылку
-        form.subscribe-block__line.d-f
-            input.subscribe-block__line-input(type="email" placeholder="Ваш email" required='' )
-            +dflt-bttn({ tag: 'button',className: 'subscribe-block__line-button', text: 'Подписаться', size: '2'})
-
-section.blog-section.mt-tp-2 
-    .container
-        .d-f.jc-sb.ai-c
-            .blog-section__head-title.ttl-tp-2 Блог
-            a.blog-section__link.d-f.ai-c.lnk.icon-size(href="#")
-                span.blog-section__link-text Смотреть все
-                img.icon-size(src="images/icons/arrow-right-blue.svg", alt="" loading="lazy")
-        .blog-section__grid.grid.mt-tp-1
-            each key, index in [["Профессия «Python разработчик»", "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus"], ["Профессия «Python разработчик»", "Lorem ipsum dolor sit amet, consectetur adipiscing ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus"], ["Профессия «Python разработчик»", "Lorem ipsum dolor sit amet, ut aliquam, purus ut aliquam, purus"], ["«Python разработчик»", "Lorem ipsum dolor sit amet ut aliquam, purus"]]
-                .blog-article.flex-column(class= index === 3 ? 'desktop' : null)
-                    img.blog-article__picture(src="images/content/blog-article.jpg", alt="" loading="lazy")
-                    .blog-article__body.flex-column
-                        a.blog-article__title.hvr-lnk(href='#')= key[0]
-                        .blog-article__text= key[1]
-                        a.blog-article__link.lnk.d-f.ai-c(href="#") 
-                            span.blog-article__link-text Читать
-                            img.blog-article__link-icon(src="images/icons/arrow-right-blue.svg", alt="" loading="lazy")
+        .row
+            h1.areas-courses__title Агрегатор лучших онлайн курсов — Coursator.online
+            .areas-courses__inner
+                h2
+                    span.areas-courses__subtitle Чем удобен наш сайт с онлайн курсами?
+                .areas-courses__item
+                    .areas-courses__text
+                        p Новые знания не только дают перспективы, но и служат личностному росту, помогают адаптироваться к меняющимся условиям реальности.
+                            a(href="").areas-courses__text-link Агрегатор курсов
+                            | - универсальный инструмент поиска таких знаний. Ценовой диапазон обучения в интернете обширный, поэтому заплатить большие деньги за плохое качество будет обидно. С этой целью и был создан Coursator.online, где собраны представленные на рынке образовательных услуг предложения, а для удобства пользователей настроена система фильтров. Новички смогут пройти профориентационных тест, результаты которого зададут вектор поиска.
+                        p &nbsp;Больше не нужно штудировать поисковые системы, изучать порталы учебных центров, сравнивать цены, читать отзывы на сторонних ресурсах, чтобы найти популярные онлайн курсы. Информация о новых, самых высокооплачиваемых, перспективных направлениях обновляется на сайте ежедневно.
+                    img(src="images/article/1-6.png", alt="картинка на фоне").areas-courses__img
+            h2
+                span.areas-courses__subtitle Какие образовательные курсы онлайн существуют?
+            p Бизнес постепенно переходит в цифровое пространство. Для обслуживания сферы требуются разные специалисты. Многие ниши по сей день недостаточно заполнены, и профессионалы ценятся очень высоко. На сайте Coursator.online можно найти все онлайн курсы по наиболее востребованным специализациям.
+            .areas-courses__item
+                .areas-courses__item-directions
+                    h3.areas-courses__item-title
+                        a(href="").areas-courses__item-link
+                            span.areas-courses__item-link-text Программирование
+                    p IT-специалисты неизменно входят в ТОП самых высокооплачиваемых профессий. Особенно ценится знание нескольких языков программирования. Учитывая динамичность сферы, она требует постоянного совершенствования и развития. Всего языков около 25000, но активно используются не более 20. Среди них:
+                    ul.main__list
+                        li
+                            a(href="") 
+                                span Java
+                        li
+                            a(href="") 
+                                span JavaScript
+                        li
+                            a(href="") 
+                                span C#
+                        li
+                            a(href="") 
+                                span Python
+                        li
+                            a(href="") 
+                                span PHP
+                        li
+                            a(href="") 
+                                span TypeScript
+                    p Также необходимо определиться с направлением будущей работы. Это может быть разработка игр, сайтов, мобильных приложений. В сферу IT входят информационная безопасность, базы данных, обслуживание серверов — здесь нужно прислушиваться к себе и выбирать то, что по душе, ведь список онлайн курсов по программированию является самым обширным.
+                .areas-courses__item-img 
+                    img(src="images/article/programm.jpg", alt="декоративная картинка")
+            .areas-courses__item
+                .areas-courses__item-img
+                    img(src="images/article/managment.jpg", alt="декоративная картинка")
+                .areas-courses__item-directions
+                    h3.areas-courses__item-title
+                        a(href="").areas-courses__item-link
+                            span.areas-courses__item-link-text Управление
+                    p Любые бизнес-процессы нуждаются во внешнем контроле и направлении с учетом меняющихся обстоятельств. Это требует гибкости и понимания всех внутренних особенностей. При обучении успешному менеджменту прокачивают лидерские качества, умение вести аналитику, составлять стратегию, проектировать работу, встраивать ее в современные цифровые рамки. Помимо этого, усваиваются навыки переговорной деятельности, мотивации персонала. Подобные уроки помогают сформировать личный управленческий стиль, который, в свою очередь, формирует имидж бизнеса.
+            .areas-courses__item
+                .areas-courses__item-directions
+                    h3.areas-courses__item-title
+                        a(href="").areas-courses__item-link
+                            span.areas-courses__item-link-text Дизайн
+                    p Имея врожденные творческие способности, далеко не каждый человек может с нуля справиться с дизайном. Этой профессии также нужно учиться, прокачивать навыки и узнавать современные способы обработки графической информации. Веб-дизайнеры в среднем зарабатывают около 100 тыс. руб., и это далеко не предел. За качественно проработанные логотипы, инфографики, авторские шрифты, эксклюзивное оформление сайтов заказчики готовы хорошо платить, потому что визуал является необходимой частью маркетинга.
+                    p Не теряет своей актуальности дизайн интерьеров. 
+                        a(href="") Агрегатор онлайн курсов Coursator.online
+                        | предоставляет информацию об уроках по различным видам дизайнерского дела, предложений для сравнения насчитывается около 350. Большинство из них включают в себя освоение популярных редакторов Adobe Photoshop, Adobe Illustrator, Adobe InDesign, Figma, InVision и других.
+                .areas-courses__item-img
+                    img(src="images/article/design.jpg", alt="декоративная картинка")
+            .areas-courses__item
+                .areas-courses__item-img
+                    img(src="images/article/marketing.jpg", alt="декоративная картинка")
+                .areas-courses__item-directions
+                    h3.areas-courses__item-title
+                        a(href="").areas-courses__item-link
+                            span.areas-courses__item-link-text Маркетинг
+                    p При живой торговле клиентов привлекает реклама. Интернет-маркетолог по тому же принципу помогает электронному продавцу найти клиентов, а клиентам узнать о продавце. При этом используются цифровые инструменты – таргет, работа с визуалом, контентом. В задачи интернет-маркетолога входят: анализ конкурентов; продвижение в соцсетях; расширение каналов трафика; выявление целевой аудитории; формирование воронки продаж.
+                    p Для успешного освоения профессии нужно уметь работать с определенными сервисами и ресурсами, которые помогают маркетологу собирать аналитические данные для работы с ЦА клиента, правильно распознать «боли» потребителя и понять в каком ключе проводить рекламную кампанию для конкретной аудитории.
+            .areas-courses__item
+                .areas-courses__item-directions
+                    h3.areas-courses__item-title
+                        a(href="").areas-courses__item-link
+                            span.areas-courses__item-link-text Аналитика
+                    p Анализ данных – перспективное направление, которому пророчат востребованность в будущем по всему миру. В школах соискателей обучат выявлению точек роста, построению гипотез, визуализации данных, основам метрики, автоматизации. Такие понятия, как Big Data, Soft Skills, А/В-тестирование, SeaBorn и многие другие перестанут быть просто словами. Сбор, анализ и презентация данных – основа работы аналитика, которая помогает рассчитывать и прогнозировать перспективные программы развития.
+                .areas-courses__item-img
+                    img(src="images/article/analytics.jpg", alt="декоративная картинка")
+            .areas-courses__item
+                .areas-courses__item-img
+                    img(src="images/article/content.jpg", alt="декоративная картинка")
+                .areas-courses__item-directions
+                    h3.areas-courses__item-title
+                        a(href="").areas-courses__item-link
+                            span.areas-courses__item-link-text Создание контента
+                    p Контент – это любая информация, которую видит посетитель на странице сайта. Сюда входят фотографии, видео, текст, иллюстрации, анимации, аудио. Все это наполняет любой ресурс в интернете. Для грамотного оформления страницы, будь то сайт или социальные сети, нужно понимание принципов маркетинга, владение психологическим анализом целевой аудитории, и определенные дизайнерские навыки . Целью контент стратегии должно стать формирование имиджа бизнеса, личного бренда, привлечение и удержание внимания аудитории.
+        h2
+            span Какие онлайн-школы обучают современным профессиям?
+        p Самые популярные онлайн курсы предоставляют несколько десятков образовательных центров. Некоторые являются узконаправленными, как, например, бизнес-школа для управленцев 
+            a(href="") City Business School
+            |, или уроки от профессионалов контент-маркетинга
+            a(href="") Convert Monster
+        p Другие площадки являются многоформатными и обучают множеству современных востребованных профессий. Среди них
+            a(href="") SkillBox,
+            a(href="") GeekBrains,
+            a(href="") Нетология,
+            a(href="") Яндекс Практикум
+            | и другие. Каждая школа предлагает пользователям огромное количество учебных программ – общеобразовательных, вводных и непосредственно раскрывающих специфику конкретных специализаций.
+        h2
+            span Для чего нужен агрегатор образовательных курсов?
+        p Замотивированный на обучение человек зачастую испытывает некоторые затруднения при непосредственном выборе школы. Какие факторы влияют на принятие решения:
+        ul.main-list__2
+            li репутация;
+            li цена;
+            li отзывы;
+            li продолжительность занятий;
+            li наличие собственных талантов и способностей;
+            li структура учебы, в том числе возможность подстраивать уроки под свой график;
+            li результативность прошедших обучение выпускников;
+        p Онлайн агрегатор Coursator.online – эффективный инструмент подбора оптимального предложения. На сайте собраны в единую базу все востребованные обучающие программы, в сравнительной форме наглядно представлены цены, сроки, наполнение. Под каждым предложением пользователи оставляют отзывы, которые также помогут сделать выбор, и на основании которых формируются рейтинги.
+        p После прохождения теста на выбор подходящей профессии останется только задать нужные параметры в понятных фильтрах, оценить характеристики предлагаемого обучения и перейти по ссылке на страницу школы для покупки.
+        p Прогресс неуклонно перемещает деятельность человека в интернет. Торговля, бизнес, учеба, работа — многие сферы жизни уже давно стали частью цифрового пространства. Развитие бизнеса тесно связано с айти сегментом — он создает все необходимые условия для функционирования новых форматов.
+        p Осваивать современные профессии – значит идти в ногу со временем и становиться востребованными высокооплачиваемыми специалистами. Все образовательные курсы онлайн собраны на сервисе Coursator.online. Выбирайте лучшее с нами!
 
 +contacts()
 
