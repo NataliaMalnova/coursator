@@ -169,3 +169,14 @@ const scrolling = () => {
   } catch {}
 
 };
+
+const changeRange = () => {
+  const range = document.querySelectorAll('.range');
+  if (range.length == 0) return;
+
+  range.forEach(elem => {
+    if (!elem.hasAttribute('data-range')) return;
+
+    elem.style.width = elem.getAttribute('data-range') + '%'
+  })
+}

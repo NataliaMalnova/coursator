@@ -62,13 +62,13 @@ mixin tableFree({title = [], school = [], rating =  [], price = [], duration =  
                                 a(href="").table-tbody__text= title[item]
                         td 
                             .table-tbody__item.d-f.ai-c
-                                a(href="#")
+                                a(href="#").table-tbody__link-black
                                     img.table-tbody__logo(src="images/content/courses-table-logo.svg", alt="" loading="lazy")
                                     .table-tbody__text= school[item]
                         td
                             .table-tbody__item.d-f.ai-c
                                 img.table-tbody__star(src="images/icons/star.svg", alt="" loading="lazy")
-                                a(href="").table-tbody__rating.table-tbody__text.d-f.ai-c= rating[item]
+                                a(href="").table-tbody__link-black.table-tbody__rating.table-tbody__text.d-f.ai-c= rating[item]
                                 span.table-tbody__rating &nbsp;(122)
                         td
                             .table-tbody__item.d-f.ai-c
@@ -82,9 +82,8 @@ mixin tableFree({title = [], school = [], rating =  [], price = [], duration =  
                                 p.table-tbody__text= duration[item]
                         td
                             .table-tbody__item.d-f.ai-c
-                                img.courses-table__icon(src="images/icons/clock.svg", alt="" loading="lazy")
                                 p.table-tbody__text= format[item]
                         td
                             .table-tbody__item.d-f.ai-c
-                                a(href="").table-tbody__link.d-f.ai-c Ссылка на курс
+                                a(href="").table-tbody__link.btn.btn-white.d-f.ai-c Ссылка на курс
                                     img.courses-table__icon-link(src="images/icons/arrow-right-blue.svg", alt="" loading="lazy")

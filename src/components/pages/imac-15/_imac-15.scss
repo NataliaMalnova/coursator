@@ -9,6 +9,12 @@
   @include media("mb") {
     max-height: 90px;
   }
+
+  .tag {
+    @include media("mb") {
+      width: 100%;
+    }
+  }
 }
 
 .course-anchors {
@@ -146,6 +152,11 @@
   display: flex;
   align-items: center;
   display: none;
+  right: calc((100% - 1270px) / 2);
+
+  @include media("lp") {
+    right: 5px;
+  }
 
   .burger {
     display: flex;

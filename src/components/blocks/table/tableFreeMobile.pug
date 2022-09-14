@@ -16,20 +16,20 @@ mixin tableFreeMobile({title = [], school = [], rating =  [], price = [], durati
                             .table-mobile--100.table-mobile--blue
                                 .table-tbody__item.table-tbody__title.table-mobile--wrap
                                     a(href="").table-tbody__text= title[item]
-                            .table-mobile--100.table-tbody__borderTop
-                                .table-mobile--wrap.table-tbody__item.d-f.ai-c.jc-c(data-type="number") 
+                            .table-mobile--90.table-tbody__borderTop.table-mobile--wrap
+                                .table-tbody__item.d-f.ai-c.jc-c(data-type="number") 
                                     p.table-tbody__text= format[item]
                         td 
                             .table-mobile--100.table-mobile--blue
                                 .table-tbody__item.table-mobile--wrap.d-f.ai-c.jc-c
-                                    a(href="#")
+                                    a(href="#").table-tbody__link-black
                                         img.table-tbody__logo(src="images/content/courses-table-logo.svg", alt="" loading="lazy")
                                         .table-tbody__text= school[item]
                                 .table-tbody__item.table-mobile--blue.d-f.ai-c.jc-c(data-sort="rating")
                                     img.table-tbody__star.mt-10(src="images/icons/star.svg", alt="" loading="lazy")
-                                    a(href="").table-tbody__rating.table-tbody__text.d-f.ai-c= rating[item]
+                                    a(href="").table-tbody__rating.table-tbody__link-black.table-tbody__text.d-f.ai-c= rating[item]
                                     span.table-tbody__rating &nbsp;(122)
-                            .table-mobile--100
+                            .table-mobile--90
                                 .table-tbody__item.table-tbody__borderTop.d-f.ai-c.jc-c(data-type="number" data-sort="cost") 
                                     img.courses-table__icon(src="images/icons/coins.svg", alt="" loading="lazy")
                                     .d-f

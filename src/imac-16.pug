@@ -102,7 +102,7 @@ section.mt-tp-9#course-filter
                             each label in key[1]
                                 label.dropdown-select__modal-element(data-event-drpdwn-slct-elmnt="")= label
                         .dropdown-select__modal-empty.hidden(data-event-drpdwn-slct-empt) Совпадений не найдено
-            +dflt-bttn({tag: 'a', className: 'filter-line__button', text: 'Поиск', size: '2', hover: 'bg'})
+            +dflt-bttn({tag: 'a', className: 'filter-line__button bttn-spinner', text: 'Поиск', size: '2', hover: 'bg'})
         button.filter-button.d-f.jc-sb.ai-c.mt-tp-8(data-event-fltr-bttn="")
             span.filter-button__text ФИЛЬТРОВАТЬ
             img.filter-button__icon.icon-size(src="images/icons/settings.svg", alt="" loading="lazy")
@@ -200,7 +200,7 @@ section.content-grid.mt-tp-1.container.d-f
         .course-spinner.d-f.jc-c
             svg.spinner(viewbox='0 0 50 50')
                 circle.path(cx='25', cy='25', r='20', fill='none', stroke-width='5')
-        .grid-pagination.d-f.ai-c.jc-c#paginationCourse.mt-40
+        .grid-pagination.d-f.ai-c.jc-c#paginationCourse
             button.btn.btn__white-blue.btn-big Загрузить еще
 
 .container.mb.mt-35

@@ -286,9 +286,12 @@ span.flatpickr-weekday {
   @include var("color", "default-text-color", $default-text-color);
 }
 .content-grid {
+  align-items: flex-start;
   &__toolbar {
     flex: 0 0 375px;
     margin-right: 20px;
+    position: sticky;
+    top: -400px;
     @include media("tb") {
       flex: 0 0 240px;
       margin-right: 15px;
@@ -301,6 +304,7 @@ span.flatpickr-weekday {
       flex: 0 1 auto;
       margin-right: 0;
       // overflow: auto;
+      top: 0;
     }
     &-close {
       display: none;
@@ -533,6 +537,7 @@ span.flatpickr-weekday {
   }
 }
 .grid-pagination {
+  margin-top: 40px;
   &__arrow {
     @include const-size(12px);
     @include media("mb") {

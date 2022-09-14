@@ -7,6 +7,7 @@
     display: none;
   }
 }
+
 .table {
   border-collapse: collapse;
   background: #fff;
@@ -138,6 +139,22 @@
       padding: 14px;
       text-decoration: none;
     }
+
+    &__text {
+      @include media("mb") {
+        font-size: 14px;
+      }
+    }
+  }
+
+  a.table-tbody__link-black {
+    color: #000;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--blue);
+      text-decoration: underline;
+    }
   }
 }
 
@@ -179,8 +196,20 @@
     height: 120px;
   }
 
+  .table-mobile--90 {
+    height: 90px;
+
+    .table-tbody__item + .table-tbody__item {
+      padding-top: 10px;
+    }
+  }
+
   .table-mobile--wrap {
     padding: 20px 8px;
+
+    @media (max-width: 380px) {
+      padding: 10px 8px;
+    }
   }
 }
 
@@ -189,6 +218,10 @@
 
   @include media("mtb") {
     display: block;
+  }
+
+  p {
+    line-height: normal;
   }
 
   .select-input {

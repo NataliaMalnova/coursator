@@ -1,4 +1,4 @@
-mixin select({ title = '', value = [], dataValue = {}, img=false })
+mixin select({ title = '', value = [], dataValue = {}, img=false, classDerection='' })
     .select-input(data-select-input="")
         button.select-input__button.d-f.ai-c(data-evnt-slct-bttn="")
             span.select-input__button-text(data-evnt-slct-bttn-txt="")=title
@@ -8,6 +8,7 @@ mixin select({ title = '', value = [], dataValue = {}, img=false })
                 button.select-input__modal-element.d-f.ai-c.jc-sb(
                     data-select-input-element= index + 1
                     class = index == 0 ? 'active' : null
+                    class=classDerection
                     data-value=dataValue[index]
                 )= key 
                     if (img)

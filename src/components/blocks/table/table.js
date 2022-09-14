@@ -177,12 +177,6 @@ const sortTableMobile = (e) => {
 
             if (!cellA || !cellB) return;
 
-            console.log('cellA ', cellA)
-            console.log('cellB ', cellB)
-
-            // cellA = rowA.querySelectorAll('td .table-tbody__item')[index];
-            // cellB = rowB.querySelectorAll('td .table-tbody__item')[index];
-
             const a = transform(cellA);
             const b = transform(cellB);
 

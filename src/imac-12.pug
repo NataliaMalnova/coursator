@@ -48,7 +48,7 @@ section.feedback-head.mt-tp-6
                                     p(class="tx-small")=key[0]
                                     p(class="tx-small")=key[1]
                                 .feedback-head__content-rating--slider
-                                    .feedback-head__content-rating--slider-filled(style=`width: calc(100% * ${key[1]} / 5)`)
+                                    .feedback-head__content-rating--slider-filled.range(data-range =`90`)
                     .feedback-head__content-rating--sliders-col.flex-column
                         each key in [["Программа обучения", 4.9], ["Уровень организации", 4.5]]
                             .feedback-head__content-rating--slide
@@ -56,7 +56,7 @@ section.feedback-head.mt-tp-6
                                     p(class="tx-small")=key[0]
                                     p(class="tx-small")=key[1]
                                 .feedback-head__content-rating--slider
-                                    .feedback-head__content-rating--slider-filled(style=`width: calc(100% * ${key[1]} / 5)`)
+                                    .feedback-head__content-rating--slider-filled.range(data-range =`90`)
 
 .container
     section.feedback-pros.d-f.jc-sb.ai-fs
@@ -82,7 +82,7 @@ section.feedback-head.mt-tp-6
                             | )
                     .d-f.feedback-pros__rating-row-slider.d-f.ai-c
                         .feedback-pros__rating-slider
-                            .feedback-pros__rating-slider--filled(style=`width: ${key[1]}%`)
+                            .feedback-pros__rating-slider--filled.range(data-range =`90`)
                         p.tx-small=key[1] 
                             | %
 

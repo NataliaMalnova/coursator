@@ -1,5 +1,5 @@
 .main {
-  overflow: hidden;
+  //overflow: hidden;
   position: relative;
   z-index: 99;
 }
@@ -602,11 +602,6 @@
   background: none;
   white-space: nowrap;
   cursor: pointer;
-
-  :hover {
-    background: #0075ff;
-    color: #fff;
-  }
 }
 
 .btn-flex {
@@ -622,6 +617,13 @@
 
 .btn-big {
   padding: 20px 40px;
+}
+
+.btn__white-blue {
+  &:hover {
+    background: #0075ff;
+    color: #fff;
+  }
 }
 
 .btn-white:hover {
@@ -641,4 +643,14 @@
 .btn-blue {
   background: #0075ff;
   color: #ffffff;
+}
+
+.btn-grey-blue {
+  background: #f7f7f7;
+  background: var(--grey-5);
+  border: none;
+  &:hover {
+    background: #0075ff;
+    color: #ffffff;
+  }
 }
