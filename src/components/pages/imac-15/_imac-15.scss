@@ -283,4 +283,10 @@
   @include media("mb") {
     max-height: 90px;
   }
+
+  .tag {
+    @include media("mb") {
+      width: 100%;
+    }
+  }
 }

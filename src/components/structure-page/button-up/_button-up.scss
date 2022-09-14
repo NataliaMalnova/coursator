@@ -18,6 +18,8 @@
   }
   @include media("mb") {
     bottom: 5px;
+    left: 20px;
+    right: auto;
   }
   &:hover {
     .button-up__icon {

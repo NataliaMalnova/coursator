@@ -110,22 +110,15 @@
           width: 300px;
         }
       }
-      > img {
-        width: 393px;
-        height: 267px;
-
-        @media (max-width: 768px) {
-          width: 300px;
-          height: 193px;
-        }
-      }
     }
-  }
 
-  &__course {
-    &-btn {
+    > img {
+      width: 393px;
+      height: 267px;
+
       @media (max-width: 768px) {
-        margin-top: 20px;
+        width: 300px;
+        height: 193px;
       }
     }
   }
@@ -137,6 +130,14 @@
     color: #0075ff;
     margin-top: 50px;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+      margin-top: 20px;
+    }
+
+    @include media("mb") {
+      padding: 10px 10px;
+    }
 
     &:hover {
       background: rgba(0, 119, 255, 0.02);
@@ -402,7 +403,6 @@
 
     &-item {
       width: 280px;
-      height: 215px;
       background: #ffffff;
       border: 1px solid #dcdcdc;
       border-radius: 19px;
@@ -414,7 +414,6 @@
 
       @media (max-width: 768px) {
         width: 330px;
-        height: 190px;
         margin: 0 auto;
         margin-top: 20px;
       }
@@ -592,12 +591,16 @@
 }
 
 .btn-enroll-fixed {
+  width: 300px;
+  height: 65px;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+
   @media (max-width: 768px) {
     width: 200px;
     height: 34px;
     font-size: 12px;
-    line-height: 15px;
-    padding: 0px 10px;
   }
 
   @media (max-width: 576px) {
@@ -608,8 +611,20 @@
     width: 110px;
     height: 34px;
     font-size: 12px;
-    line-height: 15px;
-    padding: 0px 10px;
+  }
+
+  .btn-mobile {
+    display: none;
+
+    @include media("mb") {
+      display: flex;
+    }
+  }
+
+  .btn-desctop {
+    @include media("mb") {
+      display: none;
+    }
   }
 }
 
