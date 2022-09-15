@@ -5,7 +5,7 @@ window.addEventListener("scroll", (e) => {
       document.querySelector("[data-event-ftr-up]").classList.add("active");
 
       const fixed = document.querySelector('.fixed__block-wrapper');
-      console.log(fixed)
+
       if (fixed) document.querySelector("[data-event-ftr-up]").classList.add("active-fixed");
     } else document.querySelector("[data-event-ftr-up]").classList.remove("active");
   }
