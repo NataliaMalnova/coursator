@@ -37,4 +37,11 @@
     transform: translateY(0px);
     pointer-events: auto;
   }
+  &.active-fixed {
+    bottom: 180px;
+
+    @media (max-width: 768px) {
+      bottom: 80px;
+    }
+  }
 }
